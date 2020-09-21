@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
+
                  text1.text = response.body()?.response!!.body!!.items.item[1].rnSt.toString()+"%"
                 if(text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
                     sentence.text="아침점호 안나가긴 글렀네요.."
