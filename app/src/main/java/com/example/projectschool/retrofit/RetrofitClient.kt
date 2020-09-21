@@ -1,18 +1,29 @@
 package com.example.projectschool.retrofit
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
 
 object RetrofitClient {
+    var retrofitService: Dao
 
+    init {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
 
-    fun getInstance(): RetrofitClient {
-        val retrofit: Retrofit? = Retrofit.Builder()
-                .baseUrl("https://api.openweathermap.org/data/2.5/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+        val logger = OkHttpClient.Builder().addInterceptor(interceptor)
+            .readTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(20, TimeUnit.SECONDS).build()
 
-        val service: RetrofitClient = retrofit!!.create(RetrofitClient::class.java)
-        return service
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://apis.data.go.kr/1360000/VilageFcstMsgService/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(logger)
+            .build()
+
+        retrofitService = retrofit.create(Dao::class.java)
     }
 }
