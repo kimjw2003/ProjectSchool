@@ -38,8 +38,10 @@ class MainActivity : AppCompatActivity() {
                     sentence.text="아침점호 안나가긴 글렀네요.."
                 }else if(text1.text == "40%" || text1.text == "50%" || text1.text == "60%"){
                     sentence.text="희망이 있어요~!"
+                    imageView.setImageResource(R.drawable.soso)
                 }else{
                     sentence.text="내일은 꿀잠 자겠네요 ㅎㅎ"
+                    imageView.setImageResource(R.drawable.happy)
                 }
             }
         })
