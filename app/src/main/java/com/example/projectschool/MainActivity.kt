@@ -44,6 +44,9 @@ class MainActivity : AppCompatActivity() {
                     sentence.text="내일은 꿀잠 자겠네요 ㅎㅎ"
                     imageView.setImageResource(R.drawable.happy)
                 }
+
+                text2.text = response.body()?.response!!.body!!.items.item[1].ta.toString()+"ºC"
+
             }
         })
 
