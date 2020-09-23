@@ -1,5 +1,6 @@
 package com.example.projectschool
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
+
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +36,10 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Logg", t.message)
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
-                text1.text = response.body()?.response!!.body!!.items.item[1].rnSt.toString() + "%"
+                text1.text = response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
                 if (text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
                     sentence.text = "아침점호 안나가긴 글렀네요.."
                 } else if (text1.text == "40%" || text1.text == "50%" || text1.text == "60%") {
@@ -58,8 +62,11 @@ class MainActivity : AppCompatActivity() {
                     sentence2.text = "날씨가 따뜻해요"
                     sentence2.setTextColor(Color.parseColor("#FF7F00"))
                 } else {
-
+                    sentence2.text = "날씨가 굉장히 더워요"
+                    sentence2.setTextColor(Color.parseColor("#ff0000"))
                 }
+
+
             }
         })
     }
