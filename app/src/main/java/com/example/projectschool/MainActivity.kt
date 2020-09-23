@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         time.text = spDateFormatNow("HH")
 
+
         getCurrentWeather()
 
     }
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                         sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
                         imageView.setImageResource(R.drawable.happy)
                     }
+
                 } else { //나머지 시간에 확인 시 강수 확률
                     text1.text =
                         response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
@@ -96,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-            }
+            } // OnResponse 끝맺음
         })
     }
 }
