@@ -98,12 +98,13 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="80dp"
         android:text="TETETT"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#24ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sentence2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
