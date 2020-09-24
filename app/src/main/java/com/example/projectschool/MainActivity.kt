@@ -10,11 +10,12 @@ import com.example.projectschool.data.Base
 import com.example.projectschool.data.FoodBase
 import com.example.projectschool.retrofit.food.FoodClient
 import com.example.projectschool.retrofit.weather.WeatherClient
-import com.project.simplecode.spDateFormatNow
+import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        time.text = spDateFormatNow("HH")
-        time2.text = spDateFormatNow("YYYYMMdd")
+        time.text = spDateFormat("HH", 0)
+
+
+        time2.text = spDateFormat("YYYYMMdd", 1)
 
         getCurrentWeather()
         getTomorrowFood()
