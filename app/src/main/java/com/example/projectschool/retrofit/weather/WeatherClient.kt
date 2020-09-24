@@ -1,4 +1,4 @@
-package com.example.projectschool.retrofit
+package com.example.projectschool.retrofit.weather
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,8 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-object RetrofitClient {
-    var retrofitService: Dao
+object WeatherClient {
+    var retrofitService: WeatherDao
 
     init {
         val interceptor = HttpLoggingInterceptor()
@@ -24,6 +24,6 @@ object RetrofitClient {
             .client(logger)
             .build()
 
-        retrofitService = retrofit.create(Dao::class.java)
+        retrofitService = retrofit.create(WeatherDao::class.java)
     }
 }

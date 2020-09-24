@@ -1,11 +1,11 @@
-package com.example.projectschool.retrofit
+package com.example.projectschool.retrofit.weather
 
 import com.example.projectschool.data.Base
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface Dao {
+interface WeatherDao {
     @GET("getLandFcst")
     fun getCurrentWeather(
         @Query("serviceKey", encoded = true) serviceKey: String,

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.projectschool.data.Base
-import com.example.projectschool.retrofit.RetrofitClient
+import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormatNow
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getCurrentWeather() {
 
-        RetrofitClient.retrofitService.getCurrentWeather(
+        WeatherClient.retrofitService.getCurrentWeather(
             "7UhrTwPM239CrHxGYdXDboLOSh7OmX65p12WEAaev2FNpUNCSPddYen1%2Fjh0VnQyQzXzg5nOwLlOxXPkRuggFQ%3D%3D",
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
