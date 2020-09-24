@@ -4,8 +4,11 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import com.example.projectschool.data.Base
+import com.example.projectschool.data.FoodBase
+import com.example.projectschool.retrofit.food.FoodClient
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormatNow
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,9 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         time.text = spDateFormatNow("HH")
-
+        time2.text = spDateFormatNow("YYYYMMdd")
 
         getCurrentWeather()
+        getTomorrowFood()
 
     }
 
@@ -100,5 +104,23 @@ class MainActivity : AppCompatActivity() {
 
             } // OnResponse 끝맺음
         })
+    }
+
+    fun getTomorrowFood(){
+        FoodClient.retrofitService2.getTomorrowFood("e40fc13904d84da4a8d398649c324133", "JSON", "1","100",
+            "D10", "7240393",""+time2.text
+        ).enqueue(object : Callback<FoodBase>{
+            override fun onFailure(call: Call<FoodBase>, t: Throwable) {
+                Log.d("Logg", "x")
+            }
+
+            override fun onResponse(call: Call<FoodBase>, response: Response<FoodBase>) {
+
+                foodText.text = response.body()?.mealServiceDietInfo?.get(1)?.row?.get(0)?.DDISH_NM
+                foodText.text = Html.fromHtml(foodText.text.replace("[0-9]".toRegex(),"").replace(".",""))
+            }
+
+        })
+
     }
 }

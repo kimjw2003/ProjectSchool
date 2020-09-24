@@ -1,6 +1,5 @@
 package com.example.projectschool.retrofit.food
 
-import com.example.projectschool.retrofit.weather.WeatherDao
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -8,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object FoodClient {
-    var retrofitService: FoodDao
+    var retrofitService2: FoodDao
 
     init {
         val interceptor = HttpLoggingInterceptor()
@@ -19,11 +18,11 @@ object FoodClient {
             .writeTimeout(20, TimeUnit.SECONDS).build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://open.neis.go.kr/hub/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(logger)
             .build()
 
-        retrofitService = retrofit.create(FoodDao::class.java)
+        retrofitService2 = retrofit.create(FoodDao::class.java)
     }
 }
