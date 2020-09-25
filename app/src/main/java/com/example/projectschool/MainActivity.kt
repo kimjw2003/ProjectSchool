@@ -8,7 +8,9 @@ import android.text.Html
 import android.util.Log
 import com.example.projectschool.data.Base
 import com.example.projectschool.data.FoodBase
+import com.example.projectschool.data.ScheduleBase
 import com.example.projectschool.retrofit.food.FoodClient
+import com.example.projectschool.retrofit.schedule.ScheduleClient
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         getCurrentWeather()
         getTomorrowFood()
+        getScheduletomorrow()
 
     }
 
@@ -125,5 +128,27 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+    }
+
+    fun getScheduletomorrow(){
+        ScheduleClient.retrofitService3.getTomorrowSchedule("4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
+            "D10","7240393", ""+time2.text
+        ).enqueue(object : Callback<ScheduleBase>{
+            override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
+                    Log.d("Logg", "xx")
+            }
+
+            override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
+
+                if(response.body()?.SchoolSchedule?.get(0)?.head2?.get(1)?.resulT2?.CODE == "INFO-200"){
+                    schedule_Tv.text = " 오늘은 학사일정이 없습니다."
+                }else {
+                    schedule_Tv.text =
+                        response.body()?.SchoolSchedule?.get(1)?.row?.get(1)?.EVENT_NM
+                    Log.d("Logg", "dd")
+                }
+            }
+
+        })
     }
 }

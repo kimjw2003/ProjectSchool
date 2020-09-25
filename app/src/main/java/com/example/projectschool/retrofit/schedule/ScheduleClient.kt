@@ -18,7 +18,7 @@ object ScheduleClient {
             .writeTimeout(20, TimeUnit.SECONDS).build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://open.neis.go.kr/hub/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(logger)
             .build()
