@@ -4,16 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/textview1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
@@ -21,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="내일 아침점호를 째낄확률"
-        android:textColor="#0080f0"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="percent"
-        android:textColor="#0080f0"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,50 +63,59 @@
 
     <Button
         android:id="@+id/weather_frag_Btn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
         android:text="세부날씨"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toStartOf="@+id/schedule_frag_Btn"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/food_frag_Btn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="24dp"
+        android:background="#ffffff"
         android:text="내일 아침"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toEndOf="@+id/schedule_frag_Btn"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/schedule_frag_Btn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="8dp"
+        android:background="#ffffff"
         android:text="내일 일정"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <FrameLayout
         android:id="@+id/main_frame"
-        android:layout_width="411dp"
-        android:layout_height="520dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="409dp"
+        android:layout_height="590dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -128,31 +129,28 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="68dp"
         android:text="TETETT"
-        android:textColor="#24ffffff"
+        android:textColor="#00ff0000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/time2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/sentence2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/sentence2" />
 
     <TextView
         android:id="@+id/time2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
         android:text="TETETT"
-        android:textColor="#24ffffff"
+        android:textColor="#00ff0000"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/sentence2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/sentence2" />
 
 
 

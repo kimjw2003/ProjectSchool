@@ -21,7 +21,11 @@ import retrofit2.Response
 
 class weatherFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_weather, container, false)
 
         getCurrentTemp()
@@ -42,6 +46,7 @@ class weatherFragment : Fragment() {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
                     text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
+
                     if (text2.text.toString().toInt() < 10) {
                         sentence2.text = "날씨가 굉장히 추워요"
                         sentence2.setTextColor(Color.parseColor("#0080f0"))
@@ -55,6 +60,8 @@ class weatherFragment : Fragment() {
                         sentence2.text = "날씨가 굉장히 더워요"
                         sentence2.setTextColor(Color.parseColor("#ff0000"))
                     }
+
+
                 } else { // 나머지 시간에 확인 시 내일 아침 기온
                     text2.text =
                         response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
@@ -72,6 +79,8 @@ class weatherFragment : Fragment() {
                         sentence2.setTextColor(Color.parseColor("#ff0000"))
                     }
                 }
+
+
             } //onResponse끝
         })
     }

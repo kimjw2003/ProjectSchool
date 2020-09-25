@@ -2,25 +2,19 @@ package com.example.projectschool
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.projectschool.data.Base
-import com.example.projectschool.data.FoodBase
-import com.example.projectschool.data.ScheduleBase
 import com.example.projectschool.fragment.FoodFragment
 import com.example.projectschool.fragment.ScheduleFragment
 import com.example.projectschool.fragment.weatherFragment
-import com.example.projectschool.retrofit.food.FoodClient
-import com.example.projectschool.retrofit.schedule.ScheduleClient
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,17 +28,39 @@ class MainActivity : AppCompatActivity() {
         getCurrentWeather()
 
         setFrag(0)
-
         weather_frag_Btn.setOnClickListener {
             setFrag(0)
+            weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
+            food_frag_Btn.setTextColor(Color.parseColor("#000000"))
+            schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+
+            weather_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+            food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
         }
         food_frag_Btn.setOnClickListener {
             setFrag(1)
+            weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
+            food_frag_Btn.setTextColor(Color.parseColor("#f08400"))
+            schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+
+            weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            food_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
         }
         schedule_frag_Btn.setOnClickListener {
             setFrag(2)
+            weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
+            food_frag_Btn.setTextColor(Color.parseColor("#000000"))
+            schedule_frag_Btn.setTextColor(Color.parseColor("#00eaff"))
+
+            weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
         }
+
     }
+
 
     fun getCurrentWeather() {
 
@@ -58,6 +74,7 @@ class MainActivity : AppCompatActivity() {
 
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
+
                 if (time.text.toString().toInt() in 5..11) { //5~11시 사이에 확인 시 강수확률
                     text1.text =
                         response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
