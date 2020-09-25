@@ -140,13 +140,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
 
-                if(response.body()?.SchoolSchedule?.get(0)?.head2?.get(1)?.resulT2?.CODE == "INFO-200"){
-                    schedule_Tv.text = " 오늘은 학사일정이 없습니다."
-                }else {
-                    schedule_Tv.text =
-                        response.body()?.SchoolSchedule?.get(1)?.row?.get(1)?.EVENT_NM
+                    schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
                     Log.d("Logg", "dd")
-                }
+                    if(schedule_Tv.text == ""){
+                        schedule_Tv.text = "내일은 학사일정이 없습니다"
+                    }
             }
 
         })
