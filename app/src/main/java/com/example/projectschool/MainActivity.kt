@@ -9,6 +9,9 @@ import android.util.Log
 import com.example.projectschool.data.Base
 import com.example.projectschool.data.FoodBase
 import com.example.projectschool.data.ScheduleBase
+import com.example.projectschool.fragment.FoodFragment
+import com.example.projectschool.fragment.ScheduleFragment
+import com.example.projectschool.fragment.weatherFragment
 import com.example.projectschool.retrofit.food.FoodClient
 import com.example.projectschool.retrofit.schedule.ScheduleClient
 import com.example.projectschool.retrofit.weather.WeatherClient
@@ -26,14 +29,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         time.text = spDateFormat("HH", 0)
-
-
         time2.text = spDateFormat("YYYYMMdd", 1)
 
         getCurrentWeather()
-        getTomorrowFood()
-        getScheduletomorrow()
 
+        setFrag(0)
+
+        weather_frag_Btn.setOnClickListener {
+            setFrag(0)
+        }
+        food_frag_Btn.setOnClickListener {
+            setFrag(1)
+        }
+        schedule_frag_Btn.setOnClickListener {
+            setFrag(2)
+        }
     }
 
     fun getCurrentWeather() {
@@ -75,81 +85,22 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                if (time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
-                    text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
-                    if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "날씨가 굉장히 추워요"
-                        sentence2.setTextColor(Color.parseColor("#0080f0"))
-                    } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "날씨가 쌀쌀해요"
-                        sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                    } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "날씨가 따뜻해요"
-                        sentence2.setTextColor(Color.parseColor("#FF7F00"))
-                    } else {
-                        sentence2.text = "날씨가 굉장히 더워요"
-                        sentence2.setTextColor(Color.parseColor("#ff0000"))
-                    }
-                } else { // 나머지 시간에 확인 시 내일 아침 강수 확률
-                    text2.text =
-                        response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
-                    if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "날씨가 굉장히 추워요"
-                        sentence2.setTextColor(Color.parseColor("#0080f0"))
-                    } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "날씨가 쌀쌀해요"
-                        sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                    } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "날씨가 따뜻해요"
-                        sentence2.setTextColor(Color.parseColor("#FF7F00"))
-                    } else {
-                        sentence2.text = "날씨가 굉장히 더워요"
-                        sentence2.setTextColor(Color.parseColor("#ff0000"))
-                    }
-                }
-
             } // OnResponse 끝맺음
         })
     }
 
-    fun getTomorrowFood() {
-        FoodClient.retrofitService2.getTomorrowFood(
-            "e40fc13904d84da4a8d398649c324133", "JSON", "1", "100",
-            "D10", "7240393", "" + time2.text
-        ).enqueue(object : Callback<FoodBase> {
-            override fun onFailure(call: Call<FoodBase>, t: Throwable) {
-                Log.d("Logg", "x")
+    private fun setFrag(fragNum: Int) {
+        val ft = supportFragmentManager.beginTransaction() //화면 교체를 위한 트랜잭션
+        when (fragNum) {
+            0 -> {
+                ft.replace(R.id.main_frame, weatherFragment()).commit()
             }
-
-            override fun onResponse(call: Call<FoodBase>, response: Response<FoodBase>) {
-
-                foodText.text = response.body()?.mealServiceDietInfo?.get(1)?.row?.get(0)?.DDISH_NM
-                foodText.text =
-                    Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))
+            1 -> {
+                ft.replace(R.id.main_frame, FoodFragment()).commit()
             }
-
-        })
-
-    }
-
-    fun getScheduletomorrow() {
-        ScheduleClient.retrofitService3.getTomorrowSchedule(
-            "4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
-            "D10", "7240393", "" + time2.text
-        ).enqueue(object : Callback<ScheduleBase> {
-            override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
-                Log.d("Logg", "xx")
+            2 -> {
+                ft.replace(R.id.main_frame, ScheduleFragment()).commit()
             }
-
-            override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
-
-                schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
-                Log.d("Logg", "dd")
-                if (schedule_Tv.text == "") {
-                    schedule_Tv.text = "내일은 학사일정이 없습니다"
-                }
-            }
-
-        })
+        }
     }
 }
