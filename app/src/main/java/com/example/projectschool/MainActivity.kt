@@ -112,10 +112,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun getTomorrowFood(){
-        FoodClient.retrofitService2.getTomorrowFood("e40fc13904d84da4a8d398649c324133", "JSON", "1","100",
-            "D10", "7240393",""+time2.text
-        ).enqueue(object : Callback<FoodBase>{
+    fun getTomorrowFood() {
+        FoodClient.retrofitService2.getTomorrowFood(
+            "e40fc13904d84da4a8d398649c324133", "JSON", "1", "100",
+            "D10", "7240393", "" + time2.text
+        ).enqueue(object : Callback<FoodBase> {
             override fun onFailure(call: Call<FoodBase>, t: Throwable) {
                 Log.d("Logg", "x")
             }
@@ -123,28 +124,30 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<FoodBase>, response: Response<FoodBase>) {
 
                 foodText.text = response.body()?.mealServiceDietInfo?.get(1)?.row?.get(0)?.DDISH_NM
-                foodText.text = Html.fromHtml(foodText.text.replace("[0-9]".toRegex(),"").replace(".",""))
+                foodText.text =
+                    Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))
             }
 
         })
 
     }
 
-    fun getScheduletomorrow(){
-        ScheduleClient.retrofitService3.getTomorrowSchedule("4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
-            "D10","7240393", ""+time2.text
-        ).enqueue(object : Callback<ScheduleBase>{
+    fun getScheduletomorrow() {
+        ScheduleClient.retrofitService3.getTomorrowSchedule(
+            "4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
+            "D10", "7240393", "" + time2.text
+        ).enqueue(object : Callback<ScheduleBase> {
             override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
-                    Log.d("Logg", "xx")
+                Log.d("Logg", "xx")
             }
 
             override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
 
-                    schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
-                    Log.d("Logg", "dd")
-                    if(schedule_Tv.text == ""){
-                        schedule_Tv.text = "내일은 학사일정이 없습니다"
-                    }
+                schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
+                Log.d("Logg", "dd")
+                if (schedule_Tv.text == "") {
+                    schedule_Tv.text = "내일은 학사일정이 없습니다"
+                }
             }
 
         })
