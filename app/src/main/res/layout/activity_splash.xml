@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="232dp"
         android:text="과연 내일은 \n아침점호가 있을 것인가?"
-        android:textColor="#BD6AE7"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,5 +30,16 @@
         app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/jujak" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="92dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:srcCompat="@drawable/ccby" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
