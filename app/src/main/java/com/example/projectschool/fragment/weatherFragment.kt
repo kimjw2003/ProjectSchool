@@ -1,6 +1,7 @@
 package com.example.projectschool.fragment
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,20 +45,21 @@ class weatherFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
+
                 if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
                     text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
 
                     if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "날씨가 굉장히 추워요"
+                        sentence2.text = "굉장히 추워요"
                         sentence2.setTextColor(Color.parseColor("#0080f0"))
                     } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "날씨가 쌀쌀해요"
+                        sentence2.text = "쌀쌀해요"
                         sentence2.setTextColor(Color.parseColor("#50BCDF"))
                     } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "날씨가 따뜻해요"
+                        sentence2.text = "따뜻해요"
                         sentence2.setTextColor(Color.parseColor("#FF7F00"))
                     } else {
-                        sentence2.text = "날씨가 굉장히 더워요"
+                        sentence2.text = "굉장히 더워요"
                         sentence2.setTextColor(Color.parseColor("#ff0000"))
                     }
 
@@ -66,20 +68,39 @@ class weatherFragment : Fragment() {
                     text2.text =
                         response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
                     if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "날씨가 굉장히 추워요"
+                        sentence2.text = "굉장히 추워요"
                         sentence2.setTextColor(Color.parseColor("#0080f0"))
                     } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "날씨가 쌀쌀해요"
+                        sentence2.text = "쌀쌀해요"
                         sentence2.setTextColor(Color.parseColor("#50BCDF"))
                     } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "날씨가 따뜻해요"
+                        sentence2.text = "따뜻해요"
                         sentence2.setTextColor(Color.parseColor("#FF7F00"))
                     } else {
-                        sentence2.text = "날씨가 굉장히 더워요"
+                        sentence2.text = "굉장히 더워요"
                         sentence2.setTextColor(Color.parseColor("#ff0000"))
                     }
                 }
 
+                if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 날씨
+                        weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
+                    if (weather_info.text == "맑음"){
+                        weather_info.setTextColor(Color.parseColor("#ff8000"))
+                    }else if(weather_info.text=="구름많음"){
+                        weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                    }else{
+                        weather_info.setTextColor(Color.parseColor("#848484"))
+                    }
+                }else{
+                    weather_info.text= response.body()?.response?.body?.items?.item?.get(1)?.wf.toString()
+                    if (weather_info.text == "맑음"){
+                        weather_info.setTextColor(Color.parseColor("#ff8000"))
+                    }else if(weather_info.text=="구름많음"){
+                        weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                    }else{
+                        weather_info.setTextColor(Color.parseColor("#848484"))
+                    }
+                }
 
             } //onResponse끝
         })
