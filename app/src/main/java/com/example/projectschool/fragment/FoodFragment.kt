@@ -39,14 +39,14 @@ class FoodFragment : Fragment(){
             override fun onResponse(call: Call<FoodBase>, response: Response<FoodBase>) {
 
                 activity!!.foodText.text = response.body()?.mealServiceDietInfo?.get(1)?.row?.get(0)?.DDISH_NM
-                activity!!.foodText.text = Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))
 
-                if(foodText.text == "food"){
+                if(foodText.text == "") {
                     foodText.text = "급식이 없어요"
+                }else {
+                    activity!!.foodText.text =
+                        Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))
                 }
             }
-
         })
-
     }
 }
