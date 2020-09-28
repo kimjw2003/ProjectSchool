@@ -45,7 +45,8 @@ class weatherFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
-
+                loading2.text = null
+                C.text = "ºC"
                 if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
                     text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
 

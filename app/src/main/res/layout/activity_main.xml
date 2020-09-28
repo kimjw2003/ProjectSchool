@@ -35,6 +35,7 @@
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/sentence"
         android:layout_width="wrap_content"
@@ -45,7 +46,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
@@ -60,7 +61,6 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:srcCompat="@drawable/sad" />
 
-
     <Button
         android:id="@+id/weather_frag_Btn"
         android:layout_width="140dp"
@@ -73,9 +73,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toStartOf="@+id/schedule_frag_Btn"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/food_frag_Btn"
@@ -91,9 +89,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.772"
-        app:layout_constraintStart_toEndOf="@+id/schedule_frag_Btn"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/schedule_frag_Btn" />
 
     <Button
         android:id="@+id/schedule_frag_Btn"
@@ -108,9 +104,7 @@
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/main_frame"
