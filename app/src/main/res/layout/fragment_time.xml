@@ -63,30 +63,31 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
         android:id="@+id/timeSet"
         android:layout_width="140dp"
         android:layout_height="58dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="120dp"
         android:text="시간표"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
 
     <TextView
         android:id="@+id/first_class"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="68dp"
         android:text="1교시"
         android:textColor="#60e01b"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@id/timeSet" />
 
     <TextView
         android:id="@+id/second_class"

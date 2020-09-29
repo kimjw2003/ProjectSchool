@@ -119,18 +119,15 @@
         app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <FrameLayout
         android:id="@+id/main_frame"
         android:layout_width="409dp"
         android:layout_height="590dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent">
-
-
     </FrameLayout>
-
 
     <TextView
         android:id="@+id/time"

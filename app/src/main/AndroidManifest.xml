@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".fragment.TimeFragment"></activity>
+        <activity android:name=".fragment.TimeFragment" />
         <activity android:name=".fragment.ScheduleFragment" />
         <activity android:name=".fragment.FoodFragment" />
         <activity android:name=".fragment.weatherFragment" />

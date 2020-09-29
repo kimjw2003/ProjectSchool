@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectschool.data.Base
-import com.example.projectschool.fragment.FoodFragment
-import com.example.projectschool.fragment.ScheduleFragment
-import com.example.projectschool.fragment.TimeFragment
-import com.example.projectschool.fragment.weatherFragment
+import com.example.projectschool.fragment.*
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
