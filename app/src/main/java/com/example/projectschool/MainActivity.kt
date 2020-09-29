@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
             food_frag_Btn.setTextColor(Color.parseColor("#000000"))
             schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            time_frag_Btn.setTextColor(Color.parseColor("#f7ff57"))
+            time_frag_Btn.setTextColor(Color.parseColor("#60e01b"))
 
             weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
             food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
             2 -> {
                 ft.replace(R.id.main_frame, ScheduleFragment()).commit()
             }
-            3 ->{
+            3 -> {
                 ft.replace(R.id.main_frame, TimeFragment()).commit()
             }
         }
