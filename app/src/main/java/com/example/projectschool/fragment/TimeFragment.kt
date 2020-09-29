@@ -11,7 +11,7 @@ import com.example.projectschool.R
 class TimeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_food, container, false)
+        val view = inflater.inflate(R.layout.fragment_time, container, false)
 
         return view
     }
