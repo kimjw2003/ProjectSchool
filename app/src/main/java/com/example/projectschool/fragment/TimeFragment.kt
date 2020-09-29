@@ -23,14 +23,14 @@ class TimeFragment : Fragment() {
         view.timeSet.setOnClickListener {
             if(view.grade_Et.text.toString() == "" && view.class_Et.text.toString() == ""){
                 Toast.makeText(activity!!.applicationContext, "학년/반을 적어주세요", Toast.LENGTH_SHORT).show()
-            }else{
-            getTomorrowTime(view)
-            }
-            if(view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" ||
+            }else if(view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" ||
                 view.class_Et.text.toString() > "3" || view.class_Et.text.toString() < "1")
             {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 맞게 입력해 주세요", Toast.LENGTH_SHORT).show()
+            }else{
+            getTomorrowTime(view)
             }
+
         }
 
         return view
