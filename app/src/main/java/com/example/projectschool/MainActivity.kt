@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         time.text = spDateFormat("HH", 0)
-        time2.text = spDateFormat("YYYYMMdd", 1)
+        time2.text = spDateFormat("YYYYMMdd", 0)
 
         getCurrentWeather()
 

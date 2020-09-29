@@ -6,8 +6,8 @@ data class TimeBase(
 )
 
 data class HisTimetable(
-    val row: List<TimeRow>?,
-    val head: List<TimeHead>?
+    val head: List<TimeHead>?,
+    val row: List<TimeRow>?
 )
 
 data class TimeHead(

@@ -21,7 +21,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/grade_Et"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:hintAnimationEnabled="true"
@@ -35,6 +34,7 @@
         app:layout_constraintWidth_percent="0.91">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/grade_Et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="학년"
@@ -42,11 +42,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/class_Et"
+        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:hintAnimationEnabled="true"
         android:layout_marginTop="140dp"
+        app:hintAnimationEnabled="true"
         app:hintTextColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.09"
@@ -56,10 +56,114 @@
         app:layout_constraintWidth_percent="0.91">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/class_Et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="반"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/timeSet"
+        android:layout_width="140dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="시간표"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+
+    <TextView
+        android:id="@+id/first_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="1교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <TextView
+        android:id="@+id/second_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_class" />
+
+    <TextView
+        android:id="@+id/third_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second_class" />
+
+    <TextView
+        android:id="@+id/fourth_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/third_class" />
+
+    <TextView
+        android:id="@+id/fifth_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourth_class" />
+
+    <TextView
+        android:id="@+id/sixth_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="6교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fifth_class" />
+
+    <TextView
+        android:id="@+id/seventh_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="7교시"
+        android:textColor="#60e01b"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sixth_class" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
