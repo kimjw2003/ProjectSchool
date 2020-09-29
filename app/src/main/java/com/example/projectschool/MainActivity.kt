@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectschool.data.Base
 import com.example.projectschool.fragment.FoodFragment
 import com.example.projectschool.fragment.ScheduleFragment
+import com.example.projectschool.fragment.TimeFragment
 import com.example.projectschool.fragment.weatherFragment
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormat
@@ -28,16 +29,20 @@ class MainActivity : AppCompatActivity() {
         getCurrentWeather()
 
         setFrag(0)
+
         weather_frag_Btn.setOnClickListener {
             setFrag(0)
             weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
             food_frag_Btn.setTextColor(Color.parseColor("#000000"))
             schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+            time_frag_Btn.setTextColor(Color.parseColor("#000000"))
 
             weather_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
             food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
             schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
         }
+
         food_frag_Btn.setOnClickListener {
             setFrag(1)
             weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
@@ -48,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             food_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
             schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
         }
+
         schedule_frag_Btn.setOnClickListener {
             setFrag(2)
             weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
@@ -58,7 +64,10 @@ class MainActivity : AppCompatActivity() {
             food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
             schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
         }
+        time_frag_Btn.setOnClickListener {
+            setFrag(3)
 
+        }
     }
 
 
@@ -117,6 +126,9 @@ class MainActivity : AppCompatActivity() {
             }
             2 -> {
                 ft.replace(R.id.main_frame, ScheduleFragment()).commit()
+            }
+            3 ->{
+                ft.replace(R.id.main_frame, TimeFragment()).commit()
             }
         }
     }

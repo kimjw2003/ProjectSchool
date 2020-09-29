@@ -63,7 +63,7 @@
 
     <Button
         android:id="@+id/weather_frag_Btn"
-        android:layout_width="140dp"
+        android:layout_width="103dp"
         android:layout_height="60dp"
         android:background="#FFFFFF"
         android:text="세부날씨"
@@ -77,9 +77,8 @@
 
     <Button
         android:id="@+id/food_frag_Btn"
-        android:layout_width="140dp"
+        android:layout_width="103dp"
         android:layout_height="60dp"
-        android:layout_marginStart="100dp"
         android:layout_marginEnd="24dp"
         android:background="#ffffff"
         android:text="내일 아침"
@@ -88,12 +87,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.772"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/schedule_frag_Btn" />
 
     <Button
+        android:id="@+id/time_frag_Btn"
+        android:layout_width="103dp"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        android:text="내일 시간표"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/food_frag_Btn" />
+
+    <Button
         android:id="@+id/schedule_frag_Btn"
-        android:layout_width="140dp"
+        android:layout_width="103dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
         android:background="#ffffff"
@@ -103,7 +116,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
