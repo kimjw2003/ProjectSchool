@@ -68,10 +68,14 @@
         android:id="@+id/timeSet"
         android:layout_width="140dp"
         android:layout_height="58dp"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="120dp"
-        android:text="시간표"
+        android:layout_marginTop="16dp"
+        android:text="시간표 보기"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
