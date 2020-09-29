@@ -26,6 +26,9 @@ class TimeFragment : Fragment() {
             }else{
             getTomorrowTime(view)
             }
+            if(view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" || view.class_Et.text.toString() > "3" || view.class_Et.text.toString() < "1"){
+                Toast.makeText(activity!!.applicationContext, "학년/반을 맞게 입력해 주세요", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view
