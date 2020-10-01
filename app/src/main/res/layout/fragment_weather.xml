@@ -71,6 +71,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sentence2" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/sunny_ani"
+        android:layout_width="218dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:lottie_rawRes="@raw/sunny"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/cloud_ani"
+        android:layout_width="218dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:lottie_rawRes="@raw/cloud"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/cloudy_ani"
+        android:layout_width="218dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:lottie_rawRes="@raw/cloudy"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+
     <TextView
         android:id="@+id/loading2"
         android:layout_width="wrap_content"

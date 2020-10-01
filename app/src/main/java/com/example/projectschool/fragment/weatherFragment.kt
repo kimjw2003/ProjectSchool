@@ -9,6 +9,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.Base
@@ -87,19 +89,39 @@ class weatherFragment : Fragment() {
                         weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
                     if (weather_info.text == "맑음"){
                         weather_info.setTextColor(Color.parseColor("#ff8000"))
+                        sunny_ani.visibility = View.VISIBLE
+                        cloud_ani.visibility = View.GONE
+                        cloudy_ani.visibility = View.GONE
+
                     }else if(weather_info.text=="구름많음"){
                         weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                        sunny_ani.visibility = View.GONE
+                        cloud_ani.visibility = View.VISIBLE
+                        cloudy_ani.visibility = View.GONE
+
                     }else{
                         weather_info.setTextColor(Color.parseColor("#848484"))
+                        sunny_ani.visibility = View.GONE
+                        cloud_ani.visibility = View.GONE
+                        cloudy_ani.visibility = View.VISIBLE
                     }
                 }else{
                     weather_info.text= response.body()?.response?.body?.items?.item?.get(1)?.wf.toString()
                     if (weather_info.text == "맑음"){
                         weather_info.setTextColor(Color.parseColor("#ff8000"))
+                        sunny_ani.visibility = View.VISIBLE
+                        cloud_ani.visibility = View.GONE
+                        cloudy_ani.visibility = View.GONE
                     }else if(weather_info.text=="구름많음"){
                         weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                        sunny_ani.visibility = View.GONE
+                        cloud_ani.visibility = View.VISIBLE
+                        cloudy_ani.visibility = View.GONE
                     }else{
                         weather_info.setTextColor(Color.parseColor("#848484"))
+                        sunny_ani.visibility = View.GONE
+                        cloud_ani.visibility = View.GONE
+                        cloudy_ani.visibility = View.VISIBLE
                     }
                 }
 
