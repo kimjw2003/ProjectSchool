@@ -48,22 +48,8 @@ class TimeFragment : Fragment() {
             override fun onResponse(call: Call<TimeBase>, response: Response<TimeBase>) {
                 with(view) {
 
-                    if (response.body()?.hisTimetable?.get(1)?.head?.get(0)?.list_total_count == 6) {
+                    if (response.body()?.hisTimetable?.get(1)?.head?.get(0)?.list_total_count == 7) {
                         Log.d("Logd", "in 7")
-                        first_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
-                        second_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
-                        third_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
-                        fourth_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
-                        fifth_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
-                        sixth_class.text =
-                            response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
-                    } else {
-                        Log.d("Logd", "in 6")
                         first_class.text =
                             response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
                         second_class.text =
@@ -78,6 +64,21 @@ class TimeFragment : Fragment() {
                             response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
                         seventh_class.text =
                             response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT
+                    } else {
+                        Log.d("Logd", "in 6")
+                        first_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
+                        second_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
+                        third_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
+                        fourth_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
+                        fifth_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
+                        sixth_class.text =
+                            response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
+
                     }
                 }
             }
