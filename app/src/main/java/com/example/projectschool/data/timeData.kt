@@ -11,7 +11,7 @@ data class HisTimetable(
 )
 
 data class TimeHead(
-    val list_total_count: Number?,
+    val list_total_count: Int?,
     val timeRESULT: TimeRESULT?
 )
 
