@@ -66,7 +66,7 @@ class weatherFragment : Fragment() {
 
 
                 } else { // 나머지 시간에 확인 시 내일 아침 기온
-                    text2.text =
+                    text2.text ="아침 기온 : "
                         response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
                     if (text2.text.toString().toInt() < 10) {
                         sentence2.text = "굉장히 추워요"
