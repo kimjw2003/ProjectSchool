@@ -89,7 +89,7 @@ class weatherFragment : Fragment() {
                         weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
                     if (weather_info.text == "맑음"){
                         weather_info.setTextColor(Color.parseColor("#ff8000"))
-                        sunny_ani.visibility = View.VISIBLE
+                        sunny_ani.visibility = View.VISIBLE //애니메이션 추가
                         cloud_ani.visibility = View.GONE
                         cloudy_ani.visibility = View.GONE
 
