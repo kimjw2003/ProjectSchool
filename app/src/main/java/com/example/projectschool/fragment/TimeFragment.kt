@@ -64,7 +64,7 @@ class TimeFragment : Fragment() {
                             response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
                         seventh_class.text =
                             response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT
-                        
+
                     } else  if (response.body()?.hisTimetable?.get(0)?.head?.get(0)?.list_total_count == 6) {
                         Log.d("Logd", "in 6")
                         first_class.text =
