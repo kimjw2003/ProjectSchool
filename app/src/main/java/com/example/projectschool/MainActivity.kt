@@ -94,30 +94,34 @@ class MainActivity : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
-                if (time.text.toString().toInt() in 5..11) { //5~11시 사이에 확인 시 강수확률
-                    text1.text =
+                when(time.text.toString().toInt()){
+                    in 5..11 ->{text1.text =
                         response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
-                    if (text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
-                        sentence.text = "아침점호 안나가긴 글렀네요.."
-                    } else if (text1.text == "40%" || text1.text == "50%" || text1.text == "60%") {
-                        sentence.text = "희망이 있어요~!"
-                        imageView.setImageResource(R.drawable.soso)
-                    } else {
-                        sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
-                        imageView.setImageResource(R.drawable.happy)
+//                        when(text1.text){
+//                            in "20%".."30%" ->{}
+//                        }
+                        if (text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
+                            sentence.text = "아침점호 안나가긴 글렀네요.."
+                        } else if (text1.text == "40%" || text1.text == "50%" || text1.text == "60%") {
+                            sentence.text = "희망이 있어요~!"
+                            imageView.setImageResource(R.drawable.soso)
+                        } else {
+                            sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
+                            imageView.setImageResource(R.drawable.happy)
+                        }
                     }
-
-                } else { //나머지 시간에 확인 시 강수 확률
-                    text1.text =
-                        response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
-                    if (text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
-                        sentence.text = "아침점호 안나가긴 글렀네요.."
-                    } else if (text1.text == "40%" || text1.text == "50%" || text1.text == "60%") {
-                        sentence.text = "희망이 있어요~!"
-                        imageView.setImageResource(R.drawable.soso)
-                    } else {
-                        sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
-                        imageView.setImageResource(R.drawable.happy)
+                    else ->{
+                        text1.text =
+                            response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
+                        if (text1.text == "30%" || text1.text == "20%" || text1.text == "10%" || text1.text == "0%") {
+                            sentence.text = "아침점호 안나가긴 글렀네요.."
+                        } else if (text1.text == "40%" || text1.text == "50%" || text1.text == "60%") {
+                            sentence.text = "희망이 있어요~!"
+                            imageView.setImageResource(R.drawable.soso)
+                        } else {
+                            sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
+                            imageView.setImageResource(R.drawable.happy)
+                        }
                     }
                 }
 
