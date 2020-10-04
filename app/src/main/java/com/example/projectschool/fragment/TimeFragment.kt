@@ -78,7 +78,8 @@ class TimeFragment : Fragment() {
                             response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
                         sixth_class.text =
                             response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
-
+                    }else{
+                        Log.d("Logd", "nothing")
                     }
                 }
             }
