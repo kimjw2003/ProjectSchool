@@ -63,6 +63,7 @@ class TimeFragment : Fragment() {
 
             override fun onResponse(call: Call<TimeBase>, response: Response<TimeBase>) {
                 with(view) {
+
                     when(response.body()?.hisTimetable?.get(0)?.head?.get(0)?.list_total_count){
                         7 ->{Log.d("Logd", "in 7")
                             first_class.text =
@@ -95,9 +96,9 @@ class TimeFragment : Fragment() {
                         else->{
                             Log.d("Logd", "nothing")
                         }
-                    }
-                }
-            } 
+                    } //when
+                } //with
+            } //OnResponse
         })
     }
 }
