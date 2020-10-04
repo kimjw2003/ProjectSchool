@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    else ->{
+                    else -> {
                         text1.text =
                             response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
                         when(text1.text){

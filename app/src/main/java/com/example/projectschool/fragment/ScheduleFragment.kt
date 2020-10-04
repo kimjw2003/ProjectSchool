@@ -41,33 +41,29 @@ class ScheduleFragment : Fragment(){
             override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
                 loading.text = null
                 activity!!.first_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.ONE_GRADE_EVENT_YN
-                if (first_schedule.text == "Y"){
-                    first_schedule.text = "1학년 학사일정이 존재합니다"
-                }else{
-                    first_schedule.text = "1학년 학사일정이 없습니다"
+                when(first_schedule.text){
+                    "Y" -> {first_schedule.text = "1학년 학사일정이 존재합니다"}
+                    else -> {first_schedule.text = "1학년 학사일정이 없습니다"}
                 }
 
                 activity!!.second_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.TW_GRADE_EVENT_YN
-                if (second_schedule.text == "Y"){
-                    second_schedule.text = "2학년 학사일정이 존재합니다"
-                }else{
-                    second_schedule.text = "2학년 학사일정이 없습니다"
+                when(second_schedule.text){
+                    "Y" -> {second_schedule.text = "2학년 학사일정이 존재합니다"}
+                    else -> {second_schedule.text = "2학년 학사일정이 없습니다"}
                 }
 
                 activity!!.third_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.THREE_GRADE_EVENT_YN
-                if (third_schedule.text == "Y"){
-                    third_schedule.text = "3학년 학사일정이 존재합니다"
-                }else{
-                    third_schedule.text = "3학년 학사일정이 없습니다"
+                when(third_schedule.text){
+                    "Y" -> {third_schedule.text = "3학년 학사일정이 존재합니다"}
+                    else -> {third_schedule.text = "3학년 학사일정이 없습니다"}
                 }
 
                 activity!!.schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
                 Log.d("Logg", "dd")
-                if (schedule_Tv.text == "") {
-                    schedule_Tv.text = "내일은 공통된 학사일정이 없습니다"
+                when(schedule_Tv.text){
+                    ""->{schedule_Tv.text = "내일은 공통된 학사일정이 없습니다"}
                 }
             }
-
         })
     }
 }
