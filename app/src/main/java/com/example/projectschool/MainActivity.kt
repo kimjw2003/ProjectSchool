@@ -28,55 +28,18 @@ class MainActivity : AppCompatActivity() {
         setFrag(0)
 
         weather_frag_Btn.setOnClickListener {
-            setFrag(0)
-            weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
-            food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-            weather_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-            food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            weatherFrag()
         }
 
         food_frag_Btn.setOnClickListener {
-            setFrag(1)
-            weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            food_frag_Btn.setTextColor(Color.parseColor("#f08400"))
-            schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-            weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            food_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            foodFrag()
         }
 
         schedule_frag_Btn.setOnClickListener {
-            setFrag(2)
-            weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            schedule_frag_Btn.setTextColor(Color.parseColor("#00eaff"))
-            time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-            weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-            time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+            scheduleFrag()
         }
         time_frag_Btn.setOnClickListener {
-            setFrag(3)
-
-            weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-            time_frag_Btn.setTextColor(Color.parseColor("#60e01b"))
-
-            weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-            time_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+            timeFrag()
         }
     }
 
@@ -149,5 +112,56 @@ class MainActivity : AppCompatActivity() {
                 ft.replace(R.id.main_frame, TimeFragment()).commit()
             }
         }
+    }
+
+    private fun weatherFrag(){
+        setFrag(0)
+        weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
+        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
+
+        weather_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+    }
+
+    private fun foodFrag(){
+        setFrag(1)
+        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        food_frag_Btn.setTextColor(Color.parseColor("#f08400"))
+        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
+
+        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        food_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+    }
+    private fun scheduleFrag(){
+        setFrag(2)
+        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        schedule_frag_Btn.setTextColor(Color.parseColor("#00eaff"))
+        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
+
+        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
+        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+    }
+    private fun timeFrag(){
+        setFrag(3)
+
+        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
+        time_frag_Btn.setTextColor(Color.parseColor("#60e01b"))
+
+        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
+        time_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
     }
 }
