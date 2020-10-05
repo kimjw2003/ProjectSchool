@@ -25,7 +25,7 @@ class TimeFragment : Fragment() {
 
         view.timeSet.setOnClickListener {
 
-            CloseKeyboard()
+            closeKeyboard()
             Toast.makeText(activity!!.applicationContext, grade_Et.text.toString()+"학년 "+class_Et.text.toString()+"반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
 
             if (view.grade_Et.text.toString() == "" && view.class_Et.text.toString() == "") {
@@ -42,13 +42,13 @@ class TimeFragment : Fragment() {
         return view
     } //onCreate
 
-    fun CloseKeyboard()
+    private fun closeKeyboard()
     {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
-    fun getTomorrowTime(view: View){
+    private fun getTomorrowTime(view: View){
         TimeClient.retrofitService4.getTomorrowTime("02f6d779a6c748039f9d9b3ce649d8fb", "JSON", "1",
             "100", "D10", "7240393", "2020", ""+activity!!.time2.text,
             ""+view.grade_Et.text.toString(), ""+view.class_Et.text.toString()

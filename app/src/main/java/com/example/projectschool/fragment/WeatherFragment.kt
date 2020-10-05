@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class weatherFragment : Fragment() {
+class WeatherFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,14 +30,14 @@ class weatherFragment : Fragment() {
         return view
     }
 
-    fun getCurrentTemp() {
+    private fun getCurrentTemp() {
 
         WeatherClient.retrofitService.getCurrentWeather(
             "7UhrTwPM239CrHxGYdXDboLOSh7OmX65p12WEAaev2FNpUNCSPddYen1%2Fjh0VnQyQzXzg5nOwLlOxXPkRuggFQ%3D%3D",
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
             override fun onFailure(call: Call<Base>, t: Throwable) {
-                Log.d("Logg", t.message)
+                Log.d("Logg", t.message.toString())
             }
 
             @SuppressLint("SetTextI18n")
@@ -120,7 +120,7 @@ class weatherFragment : Fragment() {
                     }
                 }
 
-            } //onResponse끝
+            } // onResponse끝
         })
     }
 }
