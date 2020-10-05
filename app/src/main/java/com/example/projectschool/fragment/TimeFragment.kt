@@ -25,12 +25,11 @@ class TimeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_time, container, false)
 
-
-
         view.timeSet.setOnClickListener {
 
             CloseKeyboard()
             Toast.makeText(activity!!.applicationContext, grade_Et.text.toString()+"학년 "+class_Et.text.toString()+"반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
+
             if (view.grade_Et.text.toString() == "" && view.class_Et.text.toString() == "") {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 적어주세요", Toast.LENGTH_SHORT).show()
             } else if (view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" ||
@@ -42,9 +41,8 @@ class TimeFragment : Fragment() {
             }
 
         }
-
         return view
-    }
+    } //onCreate
 
     fun CloseKeyboard()
     {
