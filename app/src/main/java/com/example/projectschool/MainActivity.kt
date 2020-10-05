@@ -80,8 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun getCurrentWeather() {
+    private fun getCurrentWeather() {
 
         WeatherClient.retrofitService.getCurrentWeather(
             "7UhrTwPM239CrHxGYdXDboLOSh7OmX65p12WEAaev2FNpUNCSPddYen1%2Fjh0VnQyQzXzg5nOwLlOxXPkRuggFQ%3D%3D",
