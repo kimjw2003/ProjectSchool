@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
             override fun onFailure(call: Call<Base>, t: Throwable) {
-                Log.d("Logg", t.message)
+                Log.d("Logg", t.message.toString())
             }
 
             @SuppressLint("SetTextI18n")

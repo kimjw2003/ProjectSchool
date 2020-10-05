@@ -1,6 +1,5 @@
 package com.example.projectschool.fragment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,10 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.ScheduleBase
 import com.example.projectschool.retrofit.schedule.ScheduleClient
-import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_schedule.*
-import kotlinx.android.synthetic.main.fragment_weather.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

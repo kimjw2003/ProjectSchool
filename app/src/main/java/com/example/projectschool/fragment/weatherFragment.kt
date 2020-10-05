@@ -1,21 +1,16 @@
 package com.example.projectschool.fragment
 
 import android.annotation.SuppressLint
-import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.Base
 import com.example.projectschool.retrofit.weather.WeatherClient
-import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_weather.*
 import retrofit2.Call
