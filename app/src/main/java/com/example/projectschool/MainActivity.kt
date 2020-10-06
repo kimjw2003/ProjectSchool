@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         schedule_frag_Btn.setOnClickListener {
             scheduleFrag()
         }
+
         time_frag_Btn.setOnClickListener {
             timeFrag()
         }
@@ -100,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         val ft = supportFragmentManager.beginTransaction() //화면 교체를 위한 트랜잭션
         when (fragNum) {
             0 -> {
-                ft.replace(R.id.main_frame, weatherFragment()).commit()
+                ft.replace(R.id.main_frame, WeatherFragment()).commit()
             }
             1 -> {
                 ft.replace(R.id.main_frame, FoodFragment()).commit()
@@ -114,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun weatherFrag(){
+    private fun weatherFrag() {
         setFrag(0)
         weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
         food_frag_Btn.setTextColor(Color.parseColor("#000000"))
@@ -127,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
     }
 
-    private fun foodFrag(){
+    private fun foodFrag() {
         setFrag(1)
         weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
         food_frag_Btn.setTextColor(Color.parseColor("#f08400"))
@@ -139,7 +140,8 @@ class MainActivity : AppCompatActivity() {
         schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
         time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
     }
-    private fun scheduleFrag(){
+
+    private fun scheduleFrag() {
         setFrag(2)
         weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
         food_frag_Btn.setTextColor(Color.parseColor("#000000"))
@@ -151,7 +153,8 @@ class MainActivity : AppCompatActivity() {
         schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
         time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
     }
-    private fun timeFrag(){
+
+    private fun timeFrag() {
         setFrag(3)
 
         weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
