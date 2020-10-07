@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.TimeBase
 import com.example.projectschool.retrofit.time.TimeClient
+import com.project.simplecode.spfToastShort
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_time.*
 import kotlinx.android.synthetic.main.fragment_time.view.*
@@ -26,8 +27,11 @@ class TimeFragment : Fragment() {
         view.timeSet.setOnClickListener {
 
             closeKeyboard()
-            Toast.makeText(activity!!.applicationContext, grade_Et.text.toString()+"학년 "+class_Et.text.toString()+"반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
-
+            if(first_class.text == "1교시") {
+                spfToastShort("내일의 시간표가 존재하지 않습니다")
+            }else{
+                Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
+            }
             if (view.grade_Et.text.toString() == "" && view.class_Et.text.toString() == "") {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 적어주세요", Toast.LENGTH_SHORT).show()
             } else if (view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" ||
