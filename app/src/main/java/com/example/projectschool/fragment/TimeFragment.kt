@@ -36,11 +36,12 @@ class TimeFragment : Fragment() {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 맞게 입력해 주세요", Toast.LENGTH_SHORT).show()
             } else {
                 getTomorrowTime(view)
-                if(first_class.text == "1교시") {
-                    spfToastShort("내일의 시간표가 존재하지 않습니다")
-                }else{
-                    Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
-                }
+            }
+
+            if(first_class.text == "") {
+                spfToastShort("내일의 시간표가 존재하지 않습니다")
+            }else{
+                Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -96,6 +97,13 @@ class TimeFragment : Fragment() {
                                 response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT}
                         else->{
                             Log.d("Logd", "nothing")
+                            first_class.text = ""
+                            second_class.text = ""
+                            third_class.text = ""
+                            fourth_class.text = ""
+                            fifth_class.text = ""
+                            sixth_class.text = ""
+                            seventh_class.text = ""
                         }
                     } //when
                 } //with
