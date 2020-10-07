@@ -1,10 +1,12 @@
 package com.example.projectschool.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.ScheduleBase
@@ -39,20 +41,32 @@ class ScheduleFragment : Fragment(){
                 loading.text = null
                 activity!!.first_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.ONE_GRADE_EVENT_YN
                 when(first_schedule.text){
-                    "Y" -> {}
-                    else -> {}
+                    "Y" -> {first_yes_ani.visibility = View.VISIBLE
+                            first_no_ani.visibility = View.GONE
+                    }
+                    else -> {first_yes_ani.visibility = View.GONE
+                             first_no_ani.visibility = View.VISIBLE
+                    }
                 }
 
                 activity!!.second_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.TW_GRADE_EVENT_YN
                 when(second_schedule.text){
-                    "Y" -> {}
-                    else -> {}
+                    "Y" -> {second_yes_ani.visibility = View.VISIBLE
+                            second_no_ani.visibility = View.GONE
+                    }
+                    else -> {second_yes_ani.visibility = View.GONE
+                             second_no_ani.visibility = View.VISIBLE
+                    }
                 }
 
                 activity!!.third_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.THREE_GRADE_EVENT_YN
                 when(third_schedule.text){
-                    "Y" -> {}
-                    else -> {}
+                    "Y" -> {third_yes_ani.visibility = View.VISIBLE
+                            third_no_ani.visibility = View.GONE
+                    }
+                    else -> {third_yes_ani.visibility = View.GONE
+                             third_no_ani.visibility = View.VISIBLE
+                    }
                 }
 
                 activity!!.schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM

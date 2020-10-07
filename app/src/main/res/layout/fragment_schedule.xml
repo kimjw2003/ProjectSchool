@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/first_title_Tv" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/first_schedule_ani"
+        android:id="@+id/first_yes_ani"
         android:layout_width="80dp"
         app:lottie_rawRes="@raw/yes"
         app:lottie_autoPlay="true"
@@ -71,6 +71,17 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_title_Tv" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/first_no_ani"
+        android:layout_width="80dp"
+        app:lottie_rawRes="@raw/no"
+        app:lottie_autoPlay="true"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_title_Tv" />
+
 
     <TextView
         android:id="@+id/second_title_Tv"
@@ -99,15 +110,26 @@
         app:layout_constraintTop_toBottomOf="@+id/second_title_Tv" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/second_schedule_ani"
+        android:id="@+id/second_yes_ani"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:lottie_rawRes="@raw/yes"
-        app:lottie_autoPlay="true"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/third_schedule_ani"
-        app:layout_constraintStart_toEndOf="@+id/first_schedule_ani"
-        app:layout_constraintTop_toBottomOf="@+id/second_title_Tv" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second_title_Tv"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/yes" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/second_no_ani"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second_title_Tv"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/no" />
 
     <TextView
         android:id="@+id/third_title_Tv"
@@ -137,9 +159,20 @@
         app:layout_constraintTop_toBottomOf="@+id/third_title_Tv" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/third_schedule_ani"
+        android:id="@+id/third_yes_ani"
         android:layout_width="80dp"
         app:lottie_rawRes="@raw/yes"
+        app:lottie_autoPlay="true"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/third_title_Tv" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/third_no_ani"
+        android:layout_width="80dp"
+        app:lottie_rawRes="@raw/no"
         app:lottie_autoPlay="true"
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
