@@ -104,6 +104,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/food_frag_Btn" />
 
+
     <Button
         android:id="@+id/schedule_frag_Btn"
         android:layout_width="103dp"
@@ -116,9 +117,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/main_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <FrameLayout
         android:id="@+id/main_frame"
