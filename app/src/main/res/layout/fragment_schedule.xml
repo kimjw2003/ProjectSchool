@@ -53,10 +53,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text=""
+        android:textColor="#00ff0000"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_title_Tv" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/first_schedule_ani"
+        android:layout_width="80dp"
+        app:lottie_rawRes="@raw/yes"
+        app:lottie_autoPlay="true"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_title_Tv" />
 
@@ -69,7 +81,6 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/third_title_Tv"
-        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toEndOf="@+id/first_title_Tv"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,6 +95,16 @@
         app:layout_constraintEnd_toStartOf="@+id/third_schedule"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toEndOf="@+id/first_schedule"
+        app:layout_constraintTop_toBottomOf="@+id/second_title_Tv" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/second_schedule_ani"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:lottie_rawRes="@raw/yes"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/third_schedule_ani"
+        app:layout_constraintStart_toEndOf="@+id/first_schedule_ani"
         app:layout_constraintTop_toBottomOf="@+id/second_title_Tv" />
 
     <TextView
@@ -109,6 +130,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/third_title_Tv" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/third_schedule_ani"
+        android:layout_width="80dp"
+        app:lottie_rawRes="@raw/yes"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/third_title_Tv" />
 

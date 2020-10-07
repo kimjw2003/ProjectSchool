@@ -39,20 +39,20 @@ class ScheduleFragment : Fragment(){
                 loading.text = null
                 activity!!.first_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.ONE_GRADE_EVENT_YN
                 when(first_schedule.text){
-                    "Y" -> {first_schedule.text = "1학년 학사일정이 존재합니다"}
-                    else -> {first_schedule.text = "1학년 학사일정이 없습니다"}
+                    "Y" -> {}
+                    else -> {}
                 }
 
                 activity!!.second_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.TW_GRADE_EVENT_YN
                 when(second_schedule.text){
-                    "Y" -> {second_schedule.text = "2학년 학사일정이 존재합니다"}
-                    else -> {second_schedule.text = "2학년 학사일정이 없습니다"}
+                    "Y" -> {}
+                    else -> {}
                 }
 
                 activity!!.third_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.THREE_GRADE_EVENT_YN
                 when(third_schedule.text){
-                    "Y" -> {third_schedule.text = "3학년 학사일정이 존재합니다"}
-                    else -> {third_schedule.text = "3학년 학사일정이 없습니다"}
+                    "Y" -> {}
+                    else -> {}
                 }
 
                 activity!!.schedule_Tv.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.EVENT_NM
