@@ -27,11 +27,7 @@ class TimeFragment : Fragment() {
         view.timeSet.setOnClickListener {
 
             closeKeyboard()
-            if(first_class.text == "1교시") {
-                spfToastShort("내일의 시간표가 존재하지 않습니다")
-            }else{
-                Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
-            }
+
             if (view.grade_Et.text.toString() == "" && view.class_Et.text.toString() == "") {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 적어주세요", Toast.LENGTH_SHORT).show()
             } else if (view.grade_Et.text.toString() > "3" || view.grade_Et.text.toString() < "1" ||
@@ -40,6 +36,11 @@ class TimeFragment : Fragment() {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 맞게 입력해 주세요", Toast.LENGTH_SHORT).show()
             } else {
                 getTomorrowTime(view)
+                if(first_class.text == "1교시") {
+                    spfToastShort("내일의 시간표가 존재하지 않습니다")
+                }else{
+                    Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
+                }
             }
 
         }
