@@ -92,7 +92,6 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-
             } // OnResponse 끝맺음
         })
     }
