@@ -1,5 +1,6 @@
 package com.example.projectschool.fragment
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.TimeBase
@@ -68,20 +71,34 @@ class TimeFragment : Fragment() {
 
                     when(response.body()?.hisTimetable?.get(0)?.head?.get(0)?.list_total_count){
                         7 ->{Log.d("Logd", "in 7")
-                            first_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
-                            second_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
-                            third_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
-                            fourth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
-                            fifth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
-                            sixth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
-                            seventh_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT}
+
+                            val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE)as LayoutInflater
+                            val view = inflater.inflate(R.layout.dialog, null)
+                            val textView : TextView = view.findViewById(R.id.class1)
+                            textView.text=response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
+
+                            val alertDialog = AlertDialog.Builder(this)
+
+                                .setNeutralButton("취소", null)
+                                .create()
+
+                            alertDialog.setView(view)
+                            alertDialog.show()
+
+//                            first_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
+//                            second_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
+//                            third_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
+//                            fourth_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
+//                            fifth_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
+//                            sixth_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
+//                            seventh_class.text =
+//                                response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT}
                         6->{Log.d("Logd", "in 6")
                             first_class.text =
                                 response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
@@ -110,4 +127,20 @@ class TimeFragment : Fragment() {
             } //OnResponse
         })
     }
+
+//    private fun showDialog(){
+//        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE)as LayoutInflater
+//        val view = inflater.inflate(R.layout.dialog, null)
+//        val textView : TextView = view.findViewById(R.id.class1)
+//        textView.text=response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
+//
+//        val alertDialog = AlertDialog.Builder(this)
+//
+//            .setNeutralButton("취소", null)
+//            .create()
+//
+//        alertDialog.setView(view)
+//        alertDialog.show()
+//    }
+
 }
