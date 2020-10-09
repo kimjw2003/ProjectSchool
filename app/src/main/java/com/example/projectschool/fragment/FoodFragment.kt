@@ -44,6 +44,7 @@ class FoodFragment : Fragment(){
                         Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))}
                 }
 
+                activity!!.calori.text = response.body()?.mealServiceDietInfo?.get(1)?.row?.get(0)?.CAL_INFO
 
             } //onResponse
         })
