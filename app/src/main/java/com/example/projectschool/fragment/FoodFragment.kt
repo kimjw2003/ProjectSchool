@@ -43,7 +43,9 @@ class FoodFragment : Fragment(){
                     else->{activity!!.foodText.text =
                         Html.fromHtml(foodText.text.replace("[0-9]".toRegex(), "").replace(".", ""))}
                 }
-            }
+
+
+            } //onResponse
         })
     }
 }
