@@ -73,7 +73,7 @@ class TimeFragment : Fragment() {
                     when(response.body()?.hisTimetable?.get(0)?.head?.get(0)?.list_total_count){
                         7 -> {
                             Log.d("Logd", "in 7")
-                            
+
                             first_class.text =
                                 response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
                             second_class.text =
