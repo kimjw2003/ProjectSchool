@@ -1,5 +1,6 @@
 package com.example.projectschool.fragment
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import com.example.projectschool.data.TimeBase
 import com.example.projectschool.retrofit.time.TimeClient
 import com.project.simplecode.spfToastShort
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog.view.*
 import kotlinx.android.synthetic.main.fragment_time.*
 import kotlinx.android.synthetic.main.fragment_time.view.*
 import retrofit2.Call
@@ -38,7 +40,7 @@ class TimeFragment : Fragment() {
                 getTomorrowTime(view)
             }
 
-            if(first_class.text == "") {
+            if(testEmpty.text.toString() == "empty") {
                 spfToastShort("내일의 시간표가 존재하지 않습니다")
             }else{
                 Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
@@ -70,43 +72,29 @@ class TimeFragment : Fragment() {
                         7 -> {
                             Log.d("Logd", "in 7")
 
-                            first_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
-                            second_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
-                            third_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
-                            fourth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
-                            fifth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
-                            sixth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT
-                            seventh_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT
+                            val builder = AlertDialog.Builder(context)
+                            val dialogView = layoutInflater.inflate(R.layout.dialog, null)
+                            builder.setView(dialogView)
+                                .setTitle(grade_Et.text.toString()+"학년"+class_Et.text.toString()+"반")
+                                .setMessage("\n"+response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT+ "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(6)?.ITRT_CNTNT )
+                                .setNegativeButton("확인"){
+                                    dialog, which ->
+                                } .show()
+
                         }
-                        6->{Log.d("Logd", "in 6")
-                            first_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT
-                            second_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT
-                            third_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT
-                            fourth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT
-                            fifth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT
-                            sixth_class.text =
-                                response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT}
+                        6->{
+                            Log.d("Logd", "in 6")
+
+                        }
                         else->{
                             Log.d("Logd", "nothing")
-                            first_class.text = ""
-                            second_class.text = ""
-                            third_class.text = ""
-                            fourth_class.text = ""
-                            fifth_class.text = ""
-                            sixth_class.text = ""
-                            seventh_class.text = ""
+                            testEmpty.text = "empty"
                         }
                     } //when
                 } //with

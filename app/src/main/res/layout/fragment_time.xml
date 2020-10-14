@@ -83,102 +83,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <TextView
-        android:id="@+id/first_class"
-        android:layout_width="match_parent"
+        android:id="@+id/testEmpty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="1교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timeSet" />
-
-    <TextView
-        android:id="@+id/second_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="2교시"
-        android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_class" />
-
-    <TextView
-        android:id="@+id/third_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="3교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_class" />
-
-    <TextView
-        android:id="@+id/fourth_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="4교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/third_class" />
-
-    <TextView
-        android:id="@+id/fifth_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="5교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fourth_class" />
-
-    <TextView
-        android:id="@+id/sixth_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="6교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fifth_class" />
-
-    <TextView
-        android:id="@+id/seventh_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="7교시"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sixth_class" />
+        android:text=""
+        android:textColor="#00ff0000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
