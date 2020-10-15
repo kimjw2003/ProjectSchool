@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         timeHour.text = spDateFormat("HH", 0)
-        timeTomorrow.text = spDateFormat("YYYYMMdd", 3)
+        timeTomorrow.text = spDateFormat("YYYYMMdd", 1)
 
         getCurrentWeather()
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     private fun getCurrentWeather() {
 
         WeatherClient.retrofitService.getCurrentWeather(
-            "7UhrTwPM239CrHxGYdXDboLOSh7OmX65p12WEAaev2FNpUNCSPddYen1%2Fjh0VnQyQzXzg5nOwLlOxXPkRuggFQ%3D%3D",
+            "BVGRPZAsOY6qzmiUtScnKkBraRMnIOJ%2F26fTMonMRLgwniHt5fwhWHMSWxV9k5eVQdY00vxTVc2jNdpWLxrEbQ%3D%3D",
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
             override fun onFailure(call: Call<Base>, t: Throwable) {

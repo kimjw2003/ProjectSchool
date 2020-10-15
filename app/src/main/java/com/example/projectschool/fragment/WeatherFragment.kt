@@ -33,7 +33,7 @@ class WeatherFragment : Fragment() {
     private fun getCurrentTemp() {
 
         WeatherClient.retrofitService.getCurrentWeather(
-            "7UhrTwPM239CrHxGYdXDboLOSh7OmX65p12WEAaev2FNpUNCSPddYen1%2Fjh0VnQyQzXzg5nOwLlOxXPkRuggFQ%3D%3D",
+            "BVGRPZAsOY6qzmiUtScnKkBraRMnIOJ%2F26fTMonMRLgwniHt5fwhWHMSWxV9k5eVQdY00vxTVc2jNdpWLxrEbQ%3D%3D",
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
             override fun onFailure(call: Call<Base>, t: Throwable) {
