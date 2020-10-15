@@ -31,7 +31,7 @@ class ScheduleFragment : Fragment(){
     private fun getScheduletomorrow() {
         ScheduleClient.retrofitService3.getTomorrowSchedule(
             "4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
-            "D10", "7240393", "" + activity!!.time2.text
+            "D10", "7240393", "" + activity!!.timeTomorrow.text
         ).enqueue(object : Callback<ScheduleBase> {
             override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
                 Log.d("Logg", "xx")

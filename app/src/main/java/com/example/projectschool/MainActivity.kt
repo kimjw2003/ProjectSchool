@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        time.text = spDateFormat("HH", 0)
-        time2.text = spDateFormat("YYYYMMdd", 3)
+        timeHour.text = spDateFormat("HH", 0)
+        timeTomorrow.text = spDateFormat("YYYYMMdd", 3)
 
         getCurrentWeather()
 
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
-                when(time.text.toString().toInt()){
+                when(timeHour.text.toString().toInt()){
                     in 5..11 ->{text1.text =
                         response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
                         when(text1.text){

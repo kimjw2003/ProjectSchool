@@ -130,7 +130,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/timeHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="68dp"
@@ -138,13 +138,13 @@
         android:textColor="#00ff0000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/time2"
+        app:layout_constraintBottom_toTopOf="@+id/timeTomorrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sentence2" />
 
     <TextView
-        android:id="@+id/time2"
+        android:id="@+id/timeTomorrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TETETT"

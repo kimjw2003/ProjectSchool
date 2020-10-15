@@ -42,8 +42,6 @@ class TimeFragment : Fragment() {
 
             if(testEmpty.text.toString() == "empty") {
                 spfToastShort("내일의 시간표가 존재하지 않습니다")
-            }else{
-                Toast.makeText(activity!!.applicationContext,grade_Et.text.toString() + "학년 " + class_Et.text.toString() + "반의 내일 시간표입니다.", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -58,7 +56,7 @@ class TimeFragment : Fragment() {
 
     private fun getTomorrowTime(view: View){
         TimeClient.retrofitService4.getTomorrowTime("02f6d779a6c748039f9d9b3ce649d8fb", "JSON", "1",
-            "100", "D10", "7240393", "2020", ""+activity!!.time2.text,
+            "100", "D10", "7240393", "2020", ""+activity!!.timeTomorrow.text,
             ""+view.grade_Et.text.toString(), ""+view.class_Et.text.toString()
         ).enqueue(object : retrofit2.Callback<TimeBase>{
             override fun onFailure(call: Call<TimeBase>, t: Throwable) {

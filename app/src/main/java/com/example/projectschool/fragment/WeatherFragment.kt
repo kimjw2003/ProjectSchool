@@ -44,7 +44,7 @@ class WeatherFragment : Fragment() {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 loading2.text = null
                 C.text = "ºC"
-                if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
+                if (activity!!.timeHour.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
                     text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
 
                     if (text2.text.toString().toInt() < 10) {
@@ -80,7 +80,7 @@ class WeatherFragment : Fragment() {
                     }
                 }
 
-                if (activity!!.time.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 날씨
+                if (activity!!.timeHour.text.toString().toInt() in 5..11) { // 11~5시 사이에 확인 시 내일아침 날씨
                         weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
                     if (weather_info.text == "맑음"){
                         weather_info.setTextColor(Color.parseColor("#ff8000"))
