@@ -43,44 +43,45 @@ class WeatherFragment : Fragment() {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 var checkTime = activity!!.timeHour.text.toString().toInt()
-
                 loading2.text = null
                 C.text = "ºC"
 
+                when(checkTime) {
+                    in 5..11 -> {
+                        temp_Tv.text =
+                            response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
 
-                if (checkTime in 5..11) { // 11~5시 사이에 확인 시 내일아침 기온
-                    text2.text = response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
-
-                    if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "굉장히 추워요"
-                        sentence2.setTextColor(Color.parseColor("#0080f0"))
-                    } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "쌀쌀해요"
-                        sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                    } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "따뜻해요"
-                        sentence2.setTextColor(Color.parseColor("#FF7F00"))
-                    } else {
-                        sentence2.text = "굉장히 더워요"
-                        sentence2.setTextColor(Color.parseColor("#ff0000"))
+                        if (temp_Tv.text.toString().toInt() < 10) {
+                            sentence2.text = "굉장히 추워요"
+                            sentence2.setTextColor(Color.parseColor("#0080f0"))
+                        } else if (temp_Tv.text.toString().toInt() in 10..19) {
+                            sentence2.text = "쌀쌀해요"
+                            sentence2.setTextColor(Color.parseColor("#50BCDF"))
+                        } else if (temp_Tv.text.toString().toInt() in 20..29) {
+                            sentence2.text = "따뜻해요"
+                            sentence2.setTextColor(Color.parseColor("#FF7F00"))
+                        } else {
+                            sentence2.text = "굉장히 더워요"
+                            sentence2.setTextColor(Color.parseColor("#ff0000"))
+                        }
                     }
-
-
-                } else { // 나머지 시간에 확인 시 내일 아침 기온
-                    text2.text =
-                        response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
-                    if (text2.text.toString().toInt() < 10) {
-                        sentence2.text = "굉장히 추워요"
-                        sentence2.setTextColor(Color.parseColor("#0080f0"))
-                    } else if (text2.text.toString().toInt() in 10..19) {
-                        sentence2.text = "쌀쌀해요"
-                        sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                    } else if (text2.text.toString().toInt() in 20..29) {
-                        sentence2.text = "따뜻해요"
-                        sentence2.setTextColor(Color.parseColor("#FF7F00"))
-                    } else {
-                        sentence2.text = "굉장히 더워요"
-                        sentence2.setTextColor(Color.parseColor("#ff0000"))
+                    else -> {
+                        temp_Tv.text =
+                            response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
+                        
+                        if (temp_Tv.text.toString().toInt() < 10) {
+                            sentence2.text = "굉장히 추워요"
+                            sentence2.setTextColor(Color.parseColor("#0080f0"))
+                        } else if (temp_Tv.text.toString().toInt() in 10..19) {
+                            sentence2.text = "쌀쌀해요"
+                            sentence2.setTextColor(Color.parseColor("#50BCDF"))
+                        } else if (temp_Tv.text.toString().toInt() in 20..29) {
+                            sentence2.text = "따뜻해요"
+                            sentence2.setTextColor(Color.parseColor("#FF7F00"))
+                        } else {
+                            sentence2.text = "굉장히 더워요"
+                            sentence2.setTextColor(Color.parseColor("#ff0000"))
+                        }
                     }
                 }
 
