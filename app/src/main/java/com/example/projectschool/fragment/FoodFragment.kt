@@ -26,7 +26,7 @@ class FoodFragment : Fragment(){
         return view
     }
 
-    fun getTomorrowFood() {
+    private fun getTomorrowFood() {
         FoodClient.retrofitService2.getTomorrowFood(
             "e40fc13904d84da4a8d398649c324133", "JSON", "1", "100",
             "D10", "7240393", "" + activity!!.timeTomorrow.text

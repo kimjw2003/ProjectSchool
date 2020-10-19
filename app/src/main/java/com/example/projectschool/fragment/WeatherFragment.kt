@@ -42,6 +42,7 @@ class WeatherFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
+
                 var checkTime = activity!!.timeHour.text.toString().toInt()
                 loading2.text = null
                 C.text = "ºC"
@@ -65,10 +66,11 @@ class WeatherFragment : Fragment() {
                             sentence2.setTextColor(Color.parseColor("#ff0000"))
                         }
                     }
+
                     else -> {
                         temp_Tv.text =
                             response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
-                        
+
                         if (temp_Tv.text.toString().toInt() < 10) {
                             sentence2.text = "굉장히 추워요"
                             sentence2.setTextColor(Color.parseColor("#0080f0"))
@@ -87,6 +89,7 @@ class WeatherFragment : Fragment() {
 
                 if (checkTime in 5..11) { // 11~5시 사이에 확인 시 내일아침 날씨
                         weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
+
                     if (weather_info.text == "맑음"){
                         weather_info.setTextColor(Color.parseColor("#ff8000"))
                         sunny_ani.visibility = View.VISIBLE //애니메이션 추가
