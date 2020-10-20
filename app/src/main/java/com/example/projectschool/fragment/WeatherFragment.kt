@@ -58,7 +58,7 @@ class WeatherFragment : Fragment() {
                         } else if (temp_Tv.text.toString().toInt() in 10..19) {
                             sentence2.text = "쌀쌀해요"
                             sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                        } else if (temp_Tv.text.toString().toInt() > 20) {
+                        } else if (temp_Tv.text.toString().toInt() in 20..29) {
                             sentence2.text = "따뜻해요"
                             sentence2.setTextColor(Color.parseColor("#FF7F00"))
                         } else {
@@ -77,7 +77,7 @@ class WeatherFragment : Fragment() {
                         } else if (temp_Tv.text.toString().toInt() in 10..19) {
                             sentence2.text = "쌀쌀해요"
                             sentence2.setTextColor(Color.parseColor("#50BCDF"))
-                        } else if (temp_Tv.text.toString().toInt() > 20) {
+                        } else if (temp_Tv.text.toString().toInt() in 20..29) {
                             sentence2.text = "따뜻해요"
                             sentence2.setTextColor(Color.parseColor("#FF7F00"))
                         } else {
