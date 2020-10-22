@@ -89,6 +89,20 @@ class TimeFragment : Fragment() {
                         6->{
                             Log.d("Logd", "in 6")
 
+                            val builder = AlertDialog.Builder(context)
+                            val dialogView = layoutInflater.inflate(R.layout.dialog, null)
+                            builder.setView(dialogView)
+                                .setTitle(grade_Et.text.toString()+"학년"+class_Et.text.toString()+"반")
+                                .setMessage("\n"+response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT+ "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT + "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT )
+                                .setNegativeButton("확인"){
+                                        dialog, which ->
+                                } .show()
+
                         }
                         else->{
                             Log.d("Logd", "nothing")
