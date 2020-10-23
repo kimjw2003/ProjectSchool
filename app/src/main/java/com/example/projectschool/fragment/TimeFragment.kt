@@ -84,7 +84,6 @@ class TimeFragment : Fragment() {
                                 .setNegativeButton("확인"){
                                     dialog, which ->
                                 } .show()
-
                         }
                         6->{
                             Log.d("Logd", "in 6")
@@ -102,7 +101,6 @@ class TimeFragment : Fragment() {
                                 .setNegativeButton("확인"){
                                         dialog, which ->
                                 } .show()
-
                         }
                         else->{
                             Log.d("Logd", "nothing")
@@ -113,6 +111,4 @@ class TimeFragment : Fragment() {
             } //OnResponse
         })
     }
-
-
 }
