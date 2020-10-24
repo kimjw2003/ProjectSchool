@@ -76,7 +76,7 @@ class TimeFragment : Fragment() {
                                 .setTitle(grade_Et.text.toString()+"학년"+class_Et.text.toString()+"반")
                                 .setMessage("\n"+response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT + "\n"
-                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT+ "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT + "\n"
@@ -95,7 +95,7 @@ class TimeFragment : Fragment() {
                                 .setTitle(grade_Et.text.toString()+"학년"+class_Et.text.toString()+"반")
                                 .setMessage("\n"+response.body()?.hisTimetable?.get(1)?.row?.get(0)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(1)?.ITRT_CNTNT + "\n"
-                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT+ "\n"
+                                        + response.body()?.hisTimetable?.get(1)?.row?.get(2)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(3)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(4)?.ITRT_CNTNT + "\n"
                                         + response.body()?.hisTimetable?.get(1)?.row?.get(5)?.ITRT_CNTNT )
