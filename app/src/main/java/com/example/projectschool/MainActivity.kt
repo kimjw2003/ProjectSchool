@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
                 when(timeHour.text.toString().toInt()){
-                    in 5..11 ->{text1.text =
+                    in 5..11 ->{percent_Tv.text =
                         response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
-                        when(text1.text){
+                        when(percent_Tv.text){
                             "0%","10%","20%","30%" ->{
                                 sentence.text = "아침점호 안나가긴 글렀네요.."
                             }
@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     else -> {
-                        text1.text =
+                        percent_Tv.text =
                             response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
-                        when(text1.text){
+                        when(percent_Tv.text){
                             "0%","10%","20%","30%" ->{
                                 sentence.text = "아침점호 안나가긴 글렀네요.."
                             }

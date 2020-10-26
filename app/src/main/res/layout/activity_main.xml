@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/percent_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -56,7 +56,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text1" />
+            app:layout_constraintTop_toBottomOf="@+id/percent_Tv" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -69,9 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:srcCompat="@drawable/sad" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     <Button
