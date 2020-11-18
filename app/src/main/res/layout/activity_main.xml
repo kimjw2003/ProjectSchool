@@ -15,11 +15,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:id="@+id/search_Et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toStartOf="@id/search_Btn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/search_Btn"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:text="내일 아침점호를 째낄확률"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -33,7 +52,7 @@
             android:id="@+id/percent_Tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:text="percent"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
