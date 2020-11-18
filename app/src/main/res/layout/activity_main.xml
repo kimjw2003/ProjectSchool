@@ -15,25 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/search_Et"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toStartOf="@id/search_Btn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/search_Btn"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -123,6 +104,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sentence2" />
+
 
     <TextView
         android:id="@+id/timeTomorrow"

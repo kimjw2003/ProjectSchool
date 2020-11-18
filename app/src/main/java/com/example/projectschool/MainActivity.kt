@@ -1,13 +1,11 @@
 package com.example.projectschool
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectschool.adapter.MyPagerAdapter
 import com.example.projectschool.data.Base
-import com.example.projectschool.fragment.*
 import com.example.projectschool.retrofit.weather.WeatherClient
 import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         viewpager_main.adapter = fragmentAdapter
 
         tabs_main.setupWithViewPager(viewpager_main)
+
     }
 
     private fun getCurrentWeather() {
