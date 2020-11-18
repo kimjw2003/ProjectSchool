@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectschool.adapter.MyPagerAdapter
 import com.example.projectschool.data.Base
 import com.example.projectschool.fragment.*
 import com.example.projectschool.retrofit.weather.WeatherClient
@@ -25,23 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         getCurrentWeather()
 
-        setFrag(0)
+        val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
+        viewpager_main.adapter = fragmentAdapter
 
-        weather_frag_Btn.setOnClickListener {
-            weatherFrag()
-        }
-
-        food_frag_Btn.setOnClickListener {
-            foodFrag()
-        }
-
-        schedule_frag_Btn.setOnClickListener {
-            scheduleFrag()
-        }
-
-        time_frag_Btn.setOnClickListener {
-            timeFrag()
-        }
+        tabs_main.setupWithViewPager(viewpager_main)
     }
 
     private fun getCurrentWeather() {
@@ -50,10 +38,6 @@ class MainActivity : AppCompatActivity() {
             "BVGRPZAsOY6qzmiUtScnKkBraRMnIOJ%2F26fTMonMRLgwniHt5fwhWHMSWxV9k5eVQdY00vxTVc2jNdpWLxrEbQ%3D%3D",
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
-            override fun onFailure(call: Call<Base>, t: Throwable) {
-                Log.d("Logg", t.message.toString())
-            }
-
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
@@ -93,77 +77,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } // OnResponse 끝맺음
+            override fun onFailure(call: Call<Base>, t: Throwable) {
+                Log.d("Logg", t.message.toString())
+            }
         })
-    }
-
-    private fun setFrag(fragNum: Int) {
-        val ft = supportFragmentManager.beginTransaction() //화면 교체를 위한 트랜잭션
-        when (fragNum) {
-            0 -> {
-                ft.replace(R.id.main_frame, WeatherFragment()).commit()
-            }
-            1 -> {
-                ft.replace(R.id.main_frame, FoodFragment()).commit()
-            }
-            2 -> {
-                ft.replace(R.id.main_frame, ScheduleFragment()).commit()
-            }
-            3 -> {
-                ft.replace(R.id.main_frame, TimeFragment()).commit()
-            }
-        }
-    }
-
-    private fun weatherFrag() {
-        setFrag(0)
-        weather_frag_Btn.setTextColor(Color.parseColor("#1385cc"))
-        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-        weather_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-    }
-
-    private fun foodFrag() {
-        setFrag(1)
-        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        food_frag_Btn.setTextColor(Color.parseColor("#f08400"))
-        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        food_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-    }
-
-    private fun scheduleFrag() {
-        setFrag(2)
-        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        schedule_frag_Btn.setTextColor(Color.parseColor("#00eaff"))
-        time_frag_Btn.setTextColor(Color.parseColor("#000000"))
-
-        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
-        time_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-    }
-
-    private fun timeFrag() {
-        setFrag(3)
-
-        weather_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        food_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        schedule_frag_Btn.setTextColor(Color.parseColor("#000000"))
-        time_frag_Btn.setTextColor(Color.parseColor("#60e01b"))
-
-        weather_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        food_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        schedule_frag_Btn.setBackgroundColor(Color.parseColor("#ffffff"))
-        time_frag_Btn.setBackgroundColor(Color.parseColor("#00ff0000"))
     }
 }

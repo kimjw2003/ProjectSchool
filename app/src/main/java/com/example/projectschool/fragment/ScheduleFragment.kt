@@ -1,12 +1,10 @@
 package com.example.projectschool.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.ScheduleBase

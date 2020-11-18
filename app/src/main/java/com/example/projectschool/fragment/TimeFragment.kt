@@ -15,7 +15,6 @@ import com.example.projectschool.data.TimeBase
 import com.example.projectschool.retrofit.time.TimeClient
 import com.project.simplecode.spfToastShort
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.dialog.view.*
 import kotlinx.android.synthetic.main.fragment_time.*
 import kotlinx.android.synthetic.main.fragment_time.view.*
 import retrofit2.Call

@@ -8,12 +8,12 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="173dp"
-        app:layout_constraintBottom_toTopOf="@+id/schedule_frag_Btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title"
@@ -72,73 +72,24 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <Button
-        android:id="@+id/weather_frag_Btn"
-        android:layout_width="103dp"
-        android:layout_height="60dp"
-        android:background="#FFFFFF"
-        android:text="세부날씨"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/main_frame"
-        app:layout_constraintEnd_toStartOf="@+id/schedule_frag_Btn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/food_frag_Btn"
-        android:layout_width="103dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="24dp"
-        android:background="#ffffff"
-        android:text="내일 아침"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/main_frame"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/schedule_frag_Btn" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
-    <Button
-        android:id="@+id/time_frag_Btn"
-        android:layout_width="103dp"
-        android:layout_height="60dp"
-        android:background="#ffffff"
-        android:text="내일 시간표"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/main_frame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/food_frag_Btn" />
-
-
-    <Button
-        android:id="@+id/schedule_frag_Btn"
-        android:layout_width="103dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:background="#ffffff"
-        android:text="내일 일정"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/main_frame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="409dp"
-        android:layout_height="590dp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </FrameLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs_main" />
 
     <TextView
         android:id="@+id/timeHour"
