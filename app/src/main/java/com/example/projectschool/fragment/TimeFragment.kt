@@ -55,7 +55,7 @@ class TimeFragment : Fragment() {
 
     private fun getTomorrowTime(view: View){
         TimeClient.retrofitService4.getTomorrowTime("02f6d779a6c748039f9d9b3ce649d8fb", "JSON", "1",
-            "100", "D10", "7240393", "2020", ""+activity!!.timeTomorrow.text,
+            "100", "D10", "7240393","2020", ""+activity!!.timeTomorrow.text,
             ""+view.grade_Et.text.toString(), ""+view.class_Et.text.toString()
         ).enqueue(object : retrofit2.Callback<TimeBase>{
             override fun onFailure(call: Call<TimeBase>, t: Throwable) {
