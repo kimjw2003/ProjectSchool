@@ -45,7 +45,7 @@ class TimeFragment : Fragment() {
 
         }
         return view
-    } //onCreate
+    } //onCreateView
 
     private fun closeKeyboard()
     {
