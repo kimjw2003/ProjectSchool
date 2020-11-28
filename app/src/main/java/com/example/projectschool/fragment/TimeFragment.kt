@@ -59,7 +59,7 @@ class TimeFragment : Fragment() {
             ""+view.grade_Et.text.toString(), ""+view.class_Et.text.toString()
         ).enqueue(object : retrofit2.Callback<TimeBase>{
             override fun onFailure(call: Call<TimeBase>, t: Throwable) {
-                Log.d("Logd", "xx")
+                Log.d("Logd", t.message.toString())
             }
 
             override fun onResponse(call: Call<TimeBase>, response: Response<TimeBase>) {

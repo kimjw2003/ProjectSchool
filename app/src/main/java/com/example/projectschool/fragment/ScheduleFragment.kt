@@ -32,7 +32,7 @@ class ScheduleFragment : Fragment(){
             "D10", "7240393","" + activity!!.timeTomorrow.text
         ).enqueue(object : Callback<ScheduleBase> {
             override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
-                Log.d("Logg", "xx")
+                Log.d("Logg", t.message.toString())
             }
 
             override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
