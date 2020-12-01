@@ -16,6 +16,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ScheduleFragment : Fragment(){
+    var first_schedule : String? = null
+    var second_schedule : String? = null
+    var third_schedule : String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_schedule, container, false)
@@ -36,9 +39,8 @@ class ScheduleFragment : Fragment(){
             }
 
             override fun onResponse(call: Call<ScheduleBase>, response: Response<ScheduleBase>) {
-                loading.text = null
-                activity!!.first_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.ONE_GRADE_EVENT_YN
-                when(first_schedule.text){
+                first_schedule = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.ONE_GRADE_EVENT_YN
+                when(first_schedule){
                     "Y" -> {first_yes_ani.visibility = View.VISIBLE
                             first_no_ani.visibility = View.GONE
                     }
@@ -47,8 +49,8 @@ class ScheduleFragment : Fragment(){
                     }
                 }
 
-                activity!!.second_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.TW_GRADE_EVENT_YN
-                when(second_schedule.text){
+                second_schedule = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.TW_GRADE_EVENT_YN
+                when(second_schedule){
                     "Y" -> {second_yes_ani.visibility = View.VISIBLE
                             second_no_ani.visibility = View.GONE
                     }
@@ -57,8 +59,8 @@ class ScheduleFragment : Fragment(){
                     }
                 }
 
-                activity!!.third_schedule.text = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.THREE_GRADE_EVENT_YN
-                when(third_schedule.text){
+                third_schedule = response.body()?.SchoolSchedule?.get(1)?.row?.get(0)?.THREE_GRADE_EVENT_YN
+                when(third_schedule){
                     "Y" -> {third_yes_ani.visibility = View.VISIBLE
                             third_no_ani.visibility = View.GONE
                     }
