@@ -10,27 +10,39 @@
         android:id="@+id/TimeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="내일의 시간표"
-        android:textColor="@color/colorPrimary"
-        android:textSize="28sp"
+        android:layout_marginTop="244dp"
+        android:text="내일 시간표"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:hintAnimationEnabled="true"
-        android:layout_marginTop="40dp"
-        app:hintTextColor="@color/colorPrimary"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="350dp"
+        android:layout_height="170dp"
+        android:background="@drawable/backgrr"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.09"
-        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TimeTitle"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
         app:layout_constraintWidth_percent="0.91">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -38,22 +50,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="학년"
+            android:inputType="number"
             android:maxLength="1"
-            android:inputType="number" />
+            android:textColorHint="@color/colorPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16sp"
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHeight_percent="0.09"
         app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeTitle"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintWidth_percent="0.91">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -61,26 +74,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="반"
+            android:inputType="number"
             android:maxLength="1"
-            android:inputType="number" />
+            android:textColorHint="@color/colorPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
         android:id="@+id/timeSet"
-        android:layout_width="140dp"
-        android:layout_height="58dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/circle_btn"
-        android:text="시간표 보기"
+        android:text="검색"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/testEmpty"
