@@ -19,6 +19,8 @@ import retrofit2.Response
 
 class WeatherFragment : Fragment() {
 
+    var weather_Information : String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,8 +46,38 @@ class WeatherFragment : Fragment() {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
                 var checkTime = activity!!.timeHour.text.toString().toInt()
-                loading2.text = null
-                C.text = "ºC"
+
+                when(activity!!.timeHour.text.toString().toInt()){
+                    in 5..11 ->{percent_Tv.text =
+                        response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
+                        when(percent_Tv.text){
+                            "0%","10%","20%","30%" ->{
+                                weather_icon.setImageResource(R.drawable.redman)
+                            }
+                            "40%","50%","60%" ->{
+                                weather_icon.setImageResource(R.drawable.yellowman)
+                            }
+                            else ->{
+                                weather_icon.setImageResource(R.drawable.blueman)
+                            }
+                        }
+                    }
+                    else -> {
+                        percent_Tv.text =
+                            response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
+                        when(percent_Tv.text){
+                            "0%","10%","20%","30%" ->{
+                                weather_icon.setImageResource(R.drawable.redman)
+                            }
+                            "40%","50%","60%" ->{
+                                weather_icon.setImageResource(R.drawable.yellowman)
+                            }
+                            else ->{
+                                weather_icon.setImageResource(R.drawable.blueman)
+                            }
+                        }
+                    }
+                }
 
                 when(checkTime) {
                     in 5..11 -> {
@@ -53,17 +85,13 @@ class WeatherFragment : Fragment() {
                             response.body()?.response?.body?.items?.item?.get(2)?.ta.toString()
 
                         if (temp_Tv.text.toString().toInt() < 10) {
-                            sentence2.text = "굉장히 추워요"
-                            sentence2.setTextColor(Color.parseColor("#0080f0"))
+                            weather_info.text = "굉장히 추워요"
                         } else if (temp_Tv.text.toString().toInt() in 10..19) {
-                            sentence2.text = "쌀쌀해요"
-                            sentence2.setTextColor(Color.parseColor("#50BCDF"))
+                            weather_info.text = "쌀쌀해요"
                         } else if (temp_Tv.text.toString().toInt() in 20..29) {
-                            sentence2.text = "따뜻해요"
-                            sentence2.setTextColor(Color.parseColor("#FF7F00"))
+                            weather_info.text = "따뜻해요"
                         } else {
-                            sentence2.text = "굉장히 더워요"
-                            sentence2.setTextColor(Color.parseColor("#ff0000"))
+                            weather_info.text = "굉장히 더워요"
                         }
                     }
 
@@ -72,56 +100,46 @@ class WeatherFragment : Fragment() {
                             response.body()?.response?.body?.items?.item?.get(1)?.ta.toString()
 
                         if (temp_Tv.text.toString().toInt() < 10) {
-                            sentence2.text = "굉장히 추워요"
-                            sentence2.setTextColor(Color.parseColor("#0080f0"))
+                            weather_info.text = "내일은 굉장히 추워요"
                         } else if (temp_Tv.text.toString().toInt() in 10..19) {
-                            sentence2.text = "쌀쌀해요"
-                            sentence2.setTextColor(Color.parseColor("#50BCDF"))
+                            weather_info.text = "내일은 쌀쌀해요"
                         } else if (temp_Tv.text.toString().toInt() in 20..29) {
-                            sentence2.text = "따뜻해요"
-                            sentence2.setTextColor(Color.parseColor("#FF7F00"))
+                            weather_info.text = "내일은 따뜻해요"
                         } else {
-                            sentence2.text = "굉장히 더워요"
-                            sentence2.setTextColor(Color.parseColor("#ff0000"))
+                            weather_info.text = "내일은 굉장히 더워요"
                         }
                     }
                 }
 
                 if (checkTime in 5..11) { // 11~5시 사이에 확인 시 내일아침 날씨
-                        weather_info.text= response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
+                        weather_Information = response.body()?.response?.body?.items?.item?.get(2)?.wf.toString()
 
-                    if (weather_info.text == "맑음"){
-                        weather_info.setTextColor(Color.parseColor("#ff8000"))
+                    if (weather_Information == "맑음"){
                         sunny_ani.visibility = View.VISIBLE //애니메이션 추가
                         cloud_ani.visibility = View.GONE
                         cloudy_ani.visibility = View.GONE
 
-                    }else if(weather_info.text=="구름많음"){
-                        weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                    }else if(weather_Information =="구름많음"){
                         sunny_ani.visibility = View.GONE
                         cloud_ani.visibility = View.VISIBLE
                         cloudy_ani.visibility = View.GONE
 
                     }else{
-                        weather_info.setTextColor(Color.parseColor("#848484"))
                         sunny_ani.visibility = View.GONE
                         cloud_ani.visibility = View.GONE
                         cloudy_ani.visibility = View.VISIBLE
                     }
                 }else{
-                    weather_info.text= response.body()?.response?.body?.items?.item?.get(1)?.wf.toString()
-                    if (weather_info.text == "맑음"){
-                        weather_info.setTextColor(Color.parseColor("#ff8000"))
+                    weather_Information = response.body()?.response?.body?.items?.item?.get(1)?.wf.toString()
+                    if (weather_Information == "맑음"){
                         sunny_ani.visibility = View.VISIBLE
                         cloud_ani.visibility = View.GONE
                         cloudy_ani.visibility = View.GONE
-                    }else if(weather_info.text=="구름많음"){
-                        weather_info.setTextColor(Color.parseColor("#c4c2bd"))
+                    }else if(weather_Information =="구름많음"){
                         sunny_ani.visibility = View.GONE
                         cloud_ani.visibility = View.VISIBLE
                         cloudy_ani.visibility = View.GONE
                     }else{
-                        weather_info.setTextColor(Color.parseColor("#848484"))
                         sunny_ani.visibility = View.GONE
                         cloud_ani.visibility = View.GONE
                         cloudy_ani.visibility = View.VISIBLE

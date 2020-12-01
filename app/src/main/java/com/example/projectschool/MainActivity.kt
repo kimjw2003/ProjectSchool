@@ -41,41 +41,7 @@ class MainActivity : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
-                when(timeHour.text.toString().toInt()){
-                    in 5..11 ->{percent_Tv.text =
-                        response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
-                        when(percent_Tv.text){
-                            "0%","10%","20%","30%" ->{
-                                sentence.text = "아침점호 안나가긴 글렀네요.."
-                            }
-                            "40%","50%","60%" ->{
-                                sentence.text = "희망이 있어요~!"
-                                imageView.setImageResource(R.drawable.soso)
-                            }
-                            else ->{
-                                sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
-                                imageView.setImageResource(R.drawable.happy)
-                            }
-                        }
-                    }
-                    else -> {
-                        percent_Tv.text =
-                            response.body()?.response?.body?.items?.item?.get(1)?.rnSt.toString() + "%"
-                        when(percent_Tv.text){
-                            "0%","10%","20%","30%" ->{
-                                sentence.text = "아침점호 안나가긴 글렀네요.."
-                            }
-                            "40%","50%","60%" ->{
-                                sentence.text = "희망이 있어요~!"
-                                imageView.setImageResource(R.drawable.soso)
-                            }
-                            else ->{
-                                sentence.text = "내일은 꿀잠 자겠네요 ㅎㅎ"
-                                imageView.setImageResource(R.drawable.happy)
-                            }
-                        }
-                    }
-                }
+
             } // OnResponse 끝맺음
             override fun onFailure(call: Call<Base>, t: Throwable) {
                 Log.d("Logg", t.message.toString())
