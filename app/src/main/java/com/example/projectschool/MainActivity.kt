@@ -16,13 +16,9 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        timeHour.text = spDateFormat("HH", 0)
-        timeTomorrow.text = spDateFormat("YYYYMMdd", 1)
 
         val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
         viewpager_main.adapter = fragmentAdapter

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.ScheduleBase
 import com.example.projectschool.retrofit.schedule.ScheduleClient
+import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_schedule.*
 import retrofit2.Call
@@ -20,19 +21,36 @@ class ScheduleFragment : Fragment(){
     var second_schedule : String? = null
     var third_schedule : String? = null
 
+    var timeHourSche : String? = null
+    var timeTomSche : String? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_schedule, container, false)
 
+        timeHourSche = spDateFormat("HH", 0)
+        timeTomSche = spDateFormat("YYYYMMdd", 1)
 
         getScheduletomorrow()
 
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        pullToRefreshSche.setOnRefreshListener {
+            timeHourSche = spDateFormat("HH", 0)
+            timeTomSche = spDateFormat("YYYYMMdd", 1)
+
+            getScheduletomorrow()
+            pullToRefreshSche.isRefreshing = false
+        }
+    }
+
     private fun getScheduletomorrow() {
         ScheduleClient.retrofitService3.getTomorrowSchedule(
             "4a316512f8fa44279ab02a99bf573341", "JSON", "1", "10",
-            "D10", "7240393","" + activity!!.timeTomorrow.text
+            "D10", "7240393","" + timeTomSche
         ).enqueue(object : Callback<ScheduleBase> {
             override fun onFailure(call: Call<ScheduleBase>, t: Throwable) {
                 Log.d("Logg", t.message.toString())

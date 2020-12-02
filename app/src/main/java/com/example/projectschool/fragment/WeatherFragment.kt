@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.Base
 import com.example.projectschool.retrofit.weather.WeatherClient
+import com.project.simplecode.spDateFormat
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_schedule.*
 import kotlinx.android.synthetic.main.fragment_weather.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,17 +21,30 @@ import retrofit2.Response
 
 class WeatherFragment : Fragment() {
 
+    var timeHourWeather : String? = null
+    var timeTomWeather : String? = null
     var weather_Information : String? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_weather, container, false)
+
+        timeHourWeather = spDateFormat("HH", 0)
+        timeTomWeather = spDateFormat("YYYYMMdd", 1)
 
         getCurrentTemp()
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        pullToRefreshWeather.setOnRefreshListener {
+            timeHourWeather = spDateFormat("HH", 0)
+            timeTomWeather = spDateFormat("YYYYMMdd", 1)
+
+            getCurrentTemp()
+            pullToRefreshWeather.isRefreshing = false
+        }
     }
 
     private fun getCurrentTemp() {
@@ -45,9 +60,9 @@ class WeatherFragment : Fragment() {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
 
-                var checkTime = activity!!.timeHour.text.toString().toInt()
+                var checkTime = timeHourWeather.toString().toInt()
 
-                when(activity!!.timeHour.text.toString().toInt()){
+                when(timeHourWeather.toString().toInt()){
                     in 5..11 ->{percent_Tv.text =
                         response.body()?.response?.body?.items?.item?.get(2)?.rnSt.toString() + "%"
                         when(percent_Tv.text){

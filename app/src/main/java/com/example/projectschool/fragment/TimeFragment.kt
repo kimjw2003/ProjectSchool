@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment
 import com.example.projectschool.R
 import com.example.projectschool.data.TimeBase
 import com.example.projectschool.retrofit.time.TimeClient
+import com.project.simplecode.spDateFormat
 import com.project.simplecode.spfToastShort
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_schedule.*
 import kotlinx.android.synthetic.main.fragment_time.*
 import kotlinx.android.synthetic.main.fragment_time.view.*
 import retrofit2.Call
@@ -22,8 +24,14 @@ import retrofit2.Response
 
 class TimeFragment : Fragment() {
 
+    var timeHourTime : String? = null
+    var timeTomTime : String? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_time, container, false)
+
+        timeHourTime = spDateFormat("HH", 0)
+        timeTomTime = spDateFormat("YYYYMMdd", 1)
 
         view.timeSet.setOnClickListener {
 
@@ -36,7 +44,7 @@ class TimeFragment : Fragment() {
             {
                 Toast.makeText(activity!!.applicationContext, "학년/반을 맞게 입력해 주세요", Toast.LENGTH_SHORT).show()
             } else {
-                getTomorrowTime(view)
+                getTomorrowTime()
             }
 
             if(testEmpty.text.toString() == "empty") {
@@ -47,16 +55,28 @@ class TimeFragment : Fragment() {
         return view
     } //onCreateView
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        pullToRefreshTime.setOnRefreshListener {
+            timeHourTime = spDateFormat("HH", 0)
+            timeTomTime = spDateFormat("YYYYMMdd", 1)
+
+            getTomorrowTime()
+            pullToRefreshTime.isRefreshing = false
+        }
+    }
+
     private fun closeKeyboard()
     {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
-    private fun getTomorrowTime(view: View){
+    private fun getTomorrowTime() {
         TimeClient.retrofitService4.getTomorrowTime("02f6d779a6c748039f9d9b3ce649d8fb", "JSON", "1",
-            "100", "D10", "7240393","2020", ""+activity!!.timeTomorrow.text,
-            ""+view.grade_Et.text.toString(), ""+view.class_Et.text.toString()
+            "100", "D10", "7240393","2020", ""+timeTomTime,
+            ""+view?.grade_Et?.text.toString(), ""+view?.class_Et?.text.toString()
         ).enqueue(object : retrofit2.Callback<TimeBase>{
             override fun onFailure(call: Call<TimeBase>, t: Throwable) {
                 Log.d("Logd", t.message.toString())
