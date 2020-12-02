@@ -3,6 +3,7 @@ package com.example.projectschool.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.projectschool.R
 import com.example.projectschool.fragment.FoodFragment
 import com.example.projectschool.fragment.ScheduleFragment
 import com.example.projectschool.fragment.TimeFragment
@@ -26,16 +27,13 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         }
     }
 
+
+
     override fun getCount(): Int {
         return 4
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when (position){
-            0 -> "세부날씨"
-            1 -> "내일 일정"
-            2 -> "내알 아침"
-            else -> {return "내일 시간표"}
-        }
+        return null
     }
 }
