@@ -4,6 +4,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -88,6 +90,7 @@ class TimeFragment : Fragment() {
                     when(response.body()?.hisTimetable?.get(0)?.head?.get(0)?.list_total_count){
                         7 -> {
                             Log.d("Logd", "in 7")
+                            testEmpty.text = ""
 
                             val builder = AlertDialog.Builder(context)
                             val dialogView = layoutInflater.inflate(R.layout.dialog, null)
@@ -106,6 +109,7 @@ class TimeFragment : Fragment() {
                         }
                         6->{
                             Log.d("Logd", "in 6")
+                            testEmpty.text = ""
 
                             val builder = AlertDialog.Builder(context)
                             val dialogView = layoutInflater.inflate(R.layout.dialog, null)
