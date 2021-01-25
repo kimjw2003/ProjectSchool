@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface WeatherDao {
     @GET("getLandFcst")
     fun getCurrentWeather(
-        @Query("serviceKey", encoded = true) serviceKey: String,
+        @Query("serviceKey", encoded = true) ServiceKey: String,
         @Query("numOfRows", encoded = true) numOfRows: String,
         @Query("pageNo", encoded = true) pageNo: String,
         @Query("dataType", encoded = true) dataType: String,

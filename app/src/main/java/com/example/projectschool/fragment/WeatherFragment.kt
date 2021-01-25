@@ -54,12 +54,13 @@ class WeatherFragment : Fragment() {
             "10", "1", "JSON", "11H10604"
         ).enqueue(object : Callback<Base> {
             override fun onFailure(call: Call<Base>, t: Throwable) {
-                Log.d("Logg", t.message.toString())
+                t.printStackTrace()
+                Log.d("Logd", "Weather Failed -> ${t.message.toString()}")
             }
 
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
-
+                Log.d("Logd", "Weather Come")
                 var checkTime = timeHourWeather.toString().toInt()
 
                 when(timeHourWeather.toString().toInt()){

@@ -33,7 +33,7 @@ data class ItemList (
     val regId : String?,      //예보구역코드
     val rnSt: Int?,           //강수확률
     val rnYn: Int?,           //강수형태
-    val ta: Int?,             //온도
+    val ta: String?,             //온도
     val wd1: String?,         //풍향연결(?)
     val wd2 : String?,        //풍속 강도
     val wdTnd: String?,       //풍향연결코드
